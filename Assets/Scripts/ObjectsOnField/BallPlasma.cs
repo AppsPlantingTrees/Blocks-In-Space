@@ -25,6 +25,10 @@ public class BallPlasma : Ball
       //timer:
       //plasmaBallTimer = GameObject.Find("plasmaBallTimer");
       plasmaBallDuration = PlayerPrefs.GetFloat("PlasmaBallDuration", 5f);
+
+      //field bounds:
+      world = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0.0f, 0.0f));
+      halfSizeBall = GetComponent<Renderer>().bounds.size.x / 2;
   }
 
   void Update() {

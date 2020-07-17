@@ -16,6 +16,16 @@ public class Ball : MonoBehaviour {
     public int stuckCounter = 0;
     public float plasmaBallDuration = -1;
 
+    public Vector3 ballPosScreen;
+    public Vector3 world;
+    public float halfSizeBall;
+
+    void Start() 
+    {
+      world = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0.0f, 0.0f));
+      halfSizeBall = GetComponent<Renderer>().bounds.size.x / 2;
+    }
+
     void OnCollisionEnter2D(Collision2D collisionInfo) {
         Rigidbody2D ballRb = GetComponent<Rigidbody2D>();
         if (collisionInfo.gameObject.tag == "Racket") {
@@ -46,6 +56,20 @@ public class Ball : MonoBehaviour {
       if(ballRb.velocity.magnitude > MAX_SPEED)
       {
         ballRb.velocity = ballRb.velocity.normalized * MAX_SPEED;
+      }
+
+      //keep ball within the field:
+      ballPosScreen = transform.position;
+      if (ballPosScreen.x >= (world.x - halfSizeBall)) 
+      {
+        Debug.Log("ball off screen: " + ballPosScreen);
+        ballPosScreen.x = world.x - halfSizeBall;
+        transform.position = ballPosScreen;
+      } else if(ballPosScreen.x <= -(world.x - halfSizeBall))
+      {
+        Debug.Log("ball off screen: " + ballPosScreen);
+        ballPosScreen.x = -(world.x - halfSizeBall);
+        transform.position = ballPosScreen;
       }
    }
 
