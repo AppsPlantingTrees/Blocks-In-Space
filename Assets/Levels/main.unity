@@ -2052,6 +2052,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasWinLvl
       objectReference: {fileID: 0}
+    - target: {fileID: 4393478250900684882, guid: 4de0ac3d24740f046a28884b8605d7b2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4393478250900684887, guid: 4de0ac3d24740f046a28884b8605d7b2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2171,6 +2176,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: NextLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4393478250900684886, guid: 4de0ac3d24740f046a28884b8605d7b2,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4de0ac3d24740f046a28884b8605d7b2, type: 3}

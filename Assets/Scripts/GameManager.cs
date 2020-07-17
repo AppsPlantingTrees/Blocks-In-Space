@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
 
       GameObject[] allBlocks = GameObject.FindGameObjectsWithTag("Block");
       winCounter = allBlocks.Length;
-      //winCounter = 0; //for test
+      winCounter = 0; //for test
     }
 
     public void StartNewLvl() 
@@ -142,7 +142,7 @@ public class GameManager : MonoBehaviour
       if (currentLvl < MAX_LVL)
       {
         winScreen.SetActive(true);
-        winScreen.GetComponent<CanvasWinLvl>().StartCanvas();        
+        winScreen.GetComponent<CanvasWinLvl>().SetUpCanvas(currentLvl);        
       } else {
         //it was last lvl, you win the game:
         winGameScreen.SetActive(true);

@@ -27,8 +27,7 @@ public class Ball : MonoBehaviour {
             ballRb.velocity = dir * speed;
         }
         stuckCounter++;
-        //if ball stuck somewhere, change it's position a bit:
-        //TODO - make sure the ball don't goes off the field!
+        //if ball stuck somewhere, change it's velocity a bit:
         if (stuckCounter > 15) {
           ballRb.velocity = new Vector2(ballRb.velocity.x + Random.Range(-10, 10), 
                   ballRb.velocity.y + Random.Range(-10, 10));        

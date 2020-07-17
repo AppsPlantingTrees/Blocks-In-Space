@@ -116,8 +116,6 @@ public class SaveLoadManager : MonoBehaviour
         foreach(BallForSave ballToLoad in save.balls)
         {
           if (ballToLoad.plasmaBallDur <= 0) {
-            Debug.Log("ball: " + ballToLoad.position_x + " " + ballToLoad.position_y);
-
             Ball b = Instantiate(ball, new Vector2(ballToLoad.position_x, ballToLoad.position_y), 
                       Quaternion.identity);
             b.GetComponent<Rigidbody2D>().velocity = new Vector2(ballToLoad.velocity_x, 
