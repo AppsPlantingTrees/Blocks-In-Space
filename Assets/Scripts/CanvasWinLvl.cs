@@ -30,8 +30,7 @@ public class CanvasWinLvl : MonoBehaviour
     public void x2CoinsForAd() 
     {
         int coinsThisLevel = canvasGameInfo.GetComponent<CanvasGameInfo>().getCoinsThisLevel();
-        coinsThisLevel = 2 * coinsThisLevel;
-        textCoins.GetComponent<Text>().text = "COINS: " + coinsThisLevel;
+        textCoins.GetComponent<Text>().text = "COINS: " + 2 * coinsThisLevel;
         //increase amount of coins on the screen and in the game:
         canvasGameInfo.GetComponent<CanvasGameInfo>().UpdateGold(coinsThisLevel);
         //disable button after 1 duplication (only 1 duplication/level allowed):

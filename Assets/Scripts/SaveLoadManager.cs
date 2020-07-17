@@ -87,13 +87,6 @@ public class SaveLoadManager : MonoBehaviour
       Debug.Log("Data saved");
     }
 
-    public void QuitAndSave() 
-    {
-      saveObjectsData();
-      GameObject.FindGameObjectWithTag("CanvasGameInfo").GetComponent<CanvasGameInfo>().saveData();
-      Application.Quit();
-    }
-
     public bool tryLoadObjectsData(int currentLvl)
     {
       GameObject gameManager = GameObject.FindWithTag("GameManager");

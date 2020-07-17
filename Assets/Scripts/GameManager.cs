@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
 
       GameObject[] allBlocks = GameObject.FindGameObjectsWithTag("Block");
       winCounter = allBlocks.Length;
-      winCounter = 0; //for test
+      //winCounter = 0; //for test
     }
 
     public void StartNewLvl() 
@@ -234,6 +234,14 @@ public class GameManager : MonoBehaviour
         Instantiate(upgradesMenu, new Vector2(0, 0), Quaternion.identity);
         isUpgradesMenuInstatillated = true;
       }
+    }
+
+    public void QuitAndSave() 
+    {
+      PlayerPrefs.SetInt("CurrentLvl", currentLvl);
+      GetComponent<SaveLoadManager>().saveObjectsData();
+      canvasGameInfo.GetComponent<CanvasGameInfo>().saveData();
+      Application.Quit();
     }
 
     void saveDataForTest()
