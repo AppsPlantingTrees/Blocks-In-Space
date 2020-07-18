@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class CanvasUpgrades : MonoBehaviour
 {
-  int coins, balls, priceLife, priceBarrier, pricePlasma;
+  private int coins, balls, priceLife, priceBarrier, pricePlasma;
+  private int addedCoins = 0;
   float barrierDuration, plasmaBallDuration;
   public GameObject amountOfCoins, textPlasma, textBarrier, textBall,
   textButtonAddDurPlasma, textButtonAddDurBarrier, textButtonAddBall;
@@ -29,7 +30,8 @@ public class CanvasUpgrades : MonoBehaviour
   public void watchVideoAd()
   {
     Debug.Log("Watching video ad...");
-    coins = coins + 10;
+    coins += 10;
+    addedCoins += 10;
     amountOfCoins.GetComponent<AmountOfCoins>().UpdateCoins(coins);
   }
 
@@ -83,10 +85,8 @@ public class CanvasUpgrades : MonoBehaviour
     saveData();
     GameObject canvasGameInfo = GameObject.FindWithTag("CanvasGameInfo");
     canvasGameInfo.GetComponent<CanvasGameInfo>().UpdateLives(balls);
-    canvasGameInfo.GetComponent<CanvasGameInfo>().UpdateGold(coins);
-    //todo - may "this" would work??
-    GameObject upgradesMenu = GameObject.FindWithTag("MenuUpgrades");
-    upgradesMenu.SetActive(false);
+    canvasGameInfo.GetComponent<CanvasGameInfo>().UpdateGold(addedCoins);
+    gameObject.SetActive(false);
   }
 
   void saveData()
