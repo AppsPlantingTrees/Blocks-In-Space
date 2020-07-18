@@ -12,7 +12,7 @@ public class CanvasWinLvl : MonoBehaviour
     private string[] photoAutor = {
         "Earth by <link=\"https://unsplash.com/@nasa\"><br><u>NASA</u></link>", 
         "Milky Way by <link=\"https://unsplash.com/@jeremythomasphoto\"><br><u>Jeremy Thomas</u></link>", 
-        "Andromeda Galaxy by <link=\"https://unsplash.com/@gferla\"><br><u>Guillermo Ferla</u></link>",
+        "Andromeda Galaxy <br>by <link=\"https://unsplash.com/@gferla\"><u>Guillermo Ferla</u></link>",
         "Moon by <link=\"https://unsplash.com/@gferla\"><br><u>Guillermo Ferla</u></link>", 
         "Carina Nebula by <link=\"https://unsplash.com/@nasa\"><br><u>NASA</u></link>"};
 
@@ -23,7 +23,7 @@ public class CanvasWinLvl : MonoBehaviour
         int scoreThisLevel = canvasGameInfo.GetComponent<CanvasGameInfo>().getScoreThisLevel();
         buttonX2ForAd.SetActive(true);
         textCoins.GetComponent<Text>().text = "COINS: " + coinsThisLevel;
-        textScore.GetComponent<Text>().text = "SCORE: " + scoreThisLevel;
+        textScore.GetComponent<Text>().text = "SCORE: " + (scoreThisLevel + 100);
         textPhoto.GetComponent<TextMeshProUGUI>().text = "Photo of the " + photoAutor[currentLvl-1];
     }
 

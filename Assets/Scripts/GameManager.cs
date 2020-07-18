@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
 
     float barrierDuration, plasmaBallDuration;
     private int currentCounter = 0, currentLvl;
-    public int winCounter = 100;
+    private int winCounter = 100;
     bool isAboutMenuInstatillated = false, isUpgradesMenuInstatillated = false;
 
     private const int MAX_LVL = 5;
@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-      //PlayerPrefs.SetInt("CurrentLvl", 1); //for test
+      PlayerPrefs.SetInt("CurrentLvl", 5); //for test
       //saveDataForTest();
       currentLvl = PlayerPrefs.GetInt("CurrentLvl", 1);
       canvasGameInfo.GetComponent<CanvasGameInfo>().UpdateLvl(currentLvl); 
@@ -147,7 +147,7 @@ public class GameManager : MonoBehaviour
         //it was last lvl, you win the game:
         winGameScreen.SetActive(true);
         int score = canvasGameInfo.GetComponent<CanvasGameInfo>().getScore();
-        textGameScore.GetComponent<Text>().text = "SCORE: " + score;
+        textGameScore.GetComponent<Text>().text = "SCORE: " + (score + 100); //+100 for last block
       }
     }
 
