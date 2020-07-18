@@ -221,7 +221,7 @@ public class GameManager : MonoBehaviour
       if (isAboutMenuInstatillated) {
         aboutMenu.SetActive(true);
       } else {
-        Instantiate(aboutMenu, new Vector2(0, 0), Quaternion.identity);
+        aboutMenu = Instantiate(aboutMenu, new Vector2(0, 0), Quaternion.identity);
         isAboutMenuInstatillated = true;
       }
     }
@@ -231,7 +231,7 @@ public class GameManager : MonoBehaviour
       if (isUpgradesMenuInstatillated) {
         upgradesMenu.SetActive(true);
       } else {
-        Instantiate(upgradesMenu, new Vector2(0, 0), Quaternion.identity);
+        upgradesMenu = Instantiate(upgradesMenu, new Vector2(0, 0), Quaternion.identity);
         isUpgradesMenuInstatillated = true;
       }
     }
