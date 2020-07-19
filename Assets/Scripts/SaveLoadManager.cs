@@ -131,7 +131,7 @@ public class SaveLoadManager : MonoBehaviour
         }
         Instantiate(racket, new Vector2(save.racket.position_x, -95), Quaternion.identity);
         GetComponent<SetBackground>().SetUpBackground(currentLvl);
-        canvasBlocks.GetComponent<CanvasBlocksFromSave>().LoadBlocksFromSave(save.blocks, save.blocksSteel);
+        //canvasBlocks.GetComponent<CanvasBlocksFromSave>().LoadBlocksFromSave(save.blocks, save.blocksSteel);
         GetComponent<CoinsFromSave>().LoadCoinsFromSave(save.coins);
         GetComponent<BonusesFromSave>().LoadBonusesFromSave(save.bonuses);
         GetComponent<TelsFromSave>().LoadTelsFromSave(save.telsIn, save.telsOut);

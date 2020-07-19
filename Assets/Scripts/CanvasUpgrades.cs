@@ -6,13 +6,14 @@ using UnityEngine.UI;
 public class CanvasUpgrades : MonoBehaviour
 {
   private int coins, balls, priceLife, priceBarrier, pricePlasma;
-  private int addedCoins = 0;
+  private int addedCoins;
   float barrierDuration, plasmaBallDuration;
   public GameObject amountOfCoins, textPlasma, textBarrier, textBall,
   textButtonAddDurPlasma, textButtonAddDurBarrier, textButtonAddBall;
 
   void Start()
   {
+    addedCoins = 0;
     loadData();
   }
 
@@ -39,7 +40,8 @@ public class CanvasUpgrades : MonoBehaviour
   {
     if (coins - pricePlasma > -1)
     {
-      coins = coins - pricePlasma;
+      coins -= pricePlasma;
+      addedCoins -= pricePlasma;
       amountOfCoins.GetComponent<AmountOfCoins>().UpdateCoins(coins);
       plasmaBallDuration = plasmaBallDuration + 0.5f;
       textPlasma.GetComponent<TextPlasma>().UpdateTextPlasma(plasmaBallDuration);
@@ -53,7 +55,8 @@ public class CanvasUpgrades : MonoBehaviour
   {
     if (coins - priceBarrier > -1)
     {
-      coins = coins - priceBarrier;
+      coins -= priceBarrier;
+      addedCoins -= priceBarrier;
       amountOfCoins.GetComponent<AmountOfCoins>().UpdateCoins(coins);
       barrierDuration = barrierDuration + 0.5f;
       textBarrier.GetComponent<TextBarrier>().UpdateTextBarrier(barrierDuration);
@@ -67,7 +70,8 @@ public class CanvasUpgrades : MonoBehaviour
   {
     if (coins - priceLife > -1)
     {
-      coins = coins - priceLife;
+      coins -= priceLife;
+      addedCoins -= priceLife;
       amountOfCoins.GetComponent<AmountOfCoins>().UpdateCoins(coins);
       balls = balls + 1;
       textBall.GetComponent<TextBall>().UpdateBalls(balls);
@@ -83,6 +87,7 @@ public class CanvasUpgrades : MonoBehaviour
   public void HideMenuUpgrades()
   {
     saveData();
+    addedCoins = 0;
     GameObject canvasGameInfo = GameObject.FindWithTag("CanvasGameInfo");
     canvasGameInfo.GetComponent<CanvasGameInfo>().UpdateLives(balls);
     canvasGameInfo.GetComponent<CanvasGameInfo>().UpdateGold(addedCoins);

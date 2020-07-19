@@ -29,6 +29,13 @@ public class Barrier : MonoBehaviour
       {
         Destroy(gameObject);
       }
-
     }
+    void OnCollisionEnter2D(Collision2D collisionInfo) 
+    {
+      if (collisionInfo.gameObject.tag != "Ball") 
+      {
+        Destroy(collisionInfo.gameObject);
+      }
+    }
+
 }

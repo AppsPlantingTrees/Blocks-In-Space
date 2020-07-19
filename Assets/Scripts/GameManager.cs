@@ -34,15 +34,15 @@ public class GameManager : MonoBehaviour
       PlayerPrefs.SetInt("CurrentLvl", 5); //for test
       //saveDataForTest();
       currentLvl = PlayerPrefs.GetInt("CurrentLvl", 1);
-      canvasGameInfo.GetComponent<CanvasGameInfo>().UpdateLvl(currentLvl); 
-      canvasGameInfo.GetComponent<CanvasGameInfo>().UpdateAllFromPrefs();
+      canvasGameInfo.GetComponent<CanvasGameInfo>().StartGameInfo(currentLvl);
        
       //if there is a save - try to load it
       //if no - install current lvl prefabs:
-      if (! GetComponent<SaveLoadManager>().tryLoadObjectsData(currentLvl))
+      StartNewLvl(); //for test
+      /*if (! GetComponent<SaveLoadManager>().tryLoadObjectsData(currentLvl))
       {
         StartNewLvl();
-      }
+      }*/
 
       GameObject[] allBlocks = GameObject.FindGameObjectsWithTag("Block");
       winCounter = allBlocks.Length;
@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
       Instantiate(ball, new Vector2(0, -85), Quaternion.identity);
       canvasGameInfo.GetComponent<CanvasGameInfo>().UpdateLvl(currentLvl); 
       canvasGameInfo.GetComponent<CanvasGameInfo>().setScoreThisLevelToNull(); 
-      canvasGameInfo.GetComponent<CanvasGameInfo>().setCoinsThisLevelToNulL(); 
+      canvasGameInfo.GetComponent<CanvasGameInfo>().setCoinsThisLevelToNull(); 
 
       currentCounter = 0;
 
@@ -171,13 +171,19 @@ public class GameManager : MonoBehaviour
 
     public void NewGame()
     {
-      //todo - ?
+      //todo - make coins null??
       PlayerPrefs.SetInt("Score", 0);
       PlayerPrefs.SetInt("Balls", 3);
       PlayerPrefs.SetInt("CurrentLvl", 1);
       currentLvl = 1;
 
-      canvasGameInfo.GetComponent<CanvasGameInfo>().UpdateAllFromPrefs();      
+      PlayerPrefs.SetFloat("BarrierDuration", 5f);
+      PlayerPrefs.SetFloat("PlasmaBallDuration", 5f);
+      PlayerPrefs.SetInt("PriceLife", 25);
+      PlayerPrefs.SetInt("PriceBarrier", 25);
+      PlayerPrefs.SetInt("PricePlasma", 25);
+
+      canvasGameInfo.GetComponent<CanvasGameInfo>().StartGameInfo(currentLvl);    
       StartNewLvl();
     }
 
@@ -243,6 +249,12 @@ public class GameManager : MonoBehaviour
       canvasGameInfo.GetComponent<CanvasGameInfo>().saveData();
       Application.Quit();
     }
+
+    /*void onDestroy()
+    {
+      QuitAndSave();
+      super.onDestroy();
+    }*/
 
     void saveDataForTest()
     {

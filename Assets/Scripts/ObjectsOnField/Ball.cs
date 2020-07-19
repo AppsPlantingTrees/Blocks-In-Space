@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Ball : MonoBehaviour {
-    public const float SPEED_SLOW = 60.0f;
-    public const float SPEED_NORMAL = 100.0f;
-    public const float SPEED_FAST = 150.0f;
+    public const float SPEED_SLOW = 50.0f;
+    public const float SPEED_NORMAL = 80.0f;
+    public const float SPEED_FAST = 110.0f;
 
-    public const float MAX_SPEED = 300.0f;
+    public const float MAX_SPEED = 150.0f;
 
     public const int SLOW_DOWN = 0;
     public const int SPEED_UP = 1;
@@ -60,12 +60,12 @@ public class Ball : MonoBehaviour {
 
       //keep ball within the field:
       ballPosScreen = transform.position;
-      if (ballPosScreen.x >= (world.x - halfSizeBall)) 
+      if (ballPosScreen.x >= world.x) 
       {
         Debug.Log("ball off screen: " + ballPosScreen);
         ballPosScreen.x = world.x - halfSizeBall;
         transform.position = ballPosScreen;
-      } else if(ballPosScreen.x <= -(world.x - halfSizeBall))
+      } else if(ballPosScreen.x <= -world.x)
       {
         Debug.Log("ball off screen: " + ballPosScreen);
         ballPosScreen.x = -(world.x - halfSizeBall);

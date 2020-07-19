@@ -10,6 +10,7 @@ Saves/loads these data to/from prefs.
 
 public class CanvasGameInfo : MonoBehaviour
 {
+    public GameObject borderLeft, borderRight;
     public GameObject displayScore, displayBalls, displayCoins, displayLvl;
     private int balls, coins, score;
     private int scoreThisLevel = 0, coinsThisLevel = 0;
@@ -41,10 +42,10 @@ public class CanvasGameInfo : MonoBehaviour
         displayLvl.GetComponent<Text>().text = "LVL: " + lvlNames[lvl-1].ToUpper();
     }
 
-    public void UpdateAllFromPrefs()
+    public void StartGameInfo(int currentLvl)
     {
         loadData();
-
+        UpdateLvl(currentLvl);
         UpdateGold(0);
         UpdateScore(0);
         UpdateLives(balls);
@@ -56,7 +57,7 @@ public class CanvasGameInfo : MonoBehaviour
     public int getScore() { return score;}
 
     public void setScoreThisLevelToNull() { scoreThisLevel = 0;}
-    public void setCoinsThisLevelToNulL() { coinsThisLevel = 0;}
+    public void setCoinsThisLevelToNull() { coinsThisLevel = 0;}
 
     public bool LivesMinus()
     {

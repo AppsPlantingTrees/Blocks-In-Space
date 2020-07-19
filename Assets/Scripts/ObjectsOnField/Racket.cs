@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Racket : MonoBehaviour
 {
-    public float speedPC = 150;
+    /*public float speedPC = 150;
     //bool isMagnet = false;
     //GameObject ball;
 
@@ -17,40 +17,40 @@ public class Racket : MonoBehaviour
         // Set Velocity (movement direction * speed)
         GetComponent<Rigidbody2D>().velocity = Vector2.right * h * speedPC;
 
-        /*if (isMagnet) {
-          ball.GetComponent<Rigidbody>().isKinematic = true;
-        }*/
-    }
+        //if (isMagnet) {
+        //  ball.GetComponent<Rigidbody>().isKinematic = true;
+        //}
+    }*/
 
-    void OnCollisionEnter2D(Collision2D collisionInfo)
+    /*void OnCollisionEnter2D(Collision2D collisionInfo)
     {
-      /*if (collisionInfo.gameObject.tag == "Ball" && isMagnet) {
-        ball = collisionInfo.gameObject;
-        ball.GetComponent<Rigidbody>().isKinematic = false;
-      }*/
-    }
+      //if (collisionInfo.gameObject.tag == "Ball" && isMagnet) {
+      //  ball = collisionInfo.gameObject;
+      //  ball.GetComponent<Rigidbody>().isKinematic = false;
+      //}
+    }*/
 
     /*public void MagnetRacket()
     {
       isMagnet = true;
     }*/
+    
 
-
-    //COMMENTED TEXT IS FOR ANDROID
-    /*float speed = 20f;
+    //FOR ANDROID:
+    float speed = 20f;
     float screenCenterX;
     Vector3 direction;
     Vector3 touchPosition;
     Rigidbody2D rb;
-    */
+  
 
-    /*private void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-    }*/
+    }
 
-    /*void Update () {
-
+    void Update () 
+    {
         if(Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
@@ -64,7 +64,7 @@ public class Racket : MonoBehaviour
                 rb.velocity = Vector2.zero;
             }
         }
-    }*/
+    }
 
   public ObjectForSave GetRacketForSave() 
   {

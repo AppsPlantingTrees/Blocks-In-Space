@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3343424029394791233}
   - component: {fileID: 3343424029394791232}
   - component: {fileID: 3343424029394791247}
+  - component: {fileID: 5640208651602599155}
   m_Layer: 8
   m_Name: ball
   m_TagString: Ball
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 3343424029394791246}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -59.2, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -89,24 +90,24 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3343424029394791246}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 6725845c68959684cbd04b5d4193cee4, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.46728134, y: -1.6350441}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 30, y: 30}
+    oldSize: {x: 90, y: 90}
     newSize: {x: 6, y: 5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 30, y: 30}
+  m_Size: {x: 72.980965, y: 72.51354}
   m_EdgeRadius: 0
 --- !u!50 &3343424029394791232
 Rigidbody2D:
@@ -144,3 +145,22 @@ MonoBehaviour:
   speed: 100
   stuckCounter: 0
   plasmaBallDuration: -1
+  ballPosScreen: {x: 0, y: 0, z: 0}
+  world: {x: 0, y: 0, z: 0}
+  halfSizeBall: 0
+--- !u!58 &5640208651602599155
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3343424029394791246}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 6725845c68959684cbd04b5d4193cee4, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 45
