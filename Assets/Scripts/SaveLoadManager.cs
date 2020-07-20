@@ -16,7 +16,8 @@ public class SaveLoadManager : MonoBehaviour
 {
     public Ball ball;
     public BallPlasma ballPlasma;
-    public Racket racket;
+    public Racket racket, racketShort, racketLong;
+    public Barrier barrier;
     public Canvas canvasBlocks;
 
     public Save CreateSaveObject()
@@ -37,6 +38,13 @@ public class SaveLoadManager : MonoBehaviour
       }
 
       save.racket = GameObject.FindGameObjectWithTag("Racket").GetComponent<Racket>().GetRacketForSave(); 
+      GameObject barrier = GameObject.FindGameObjectWithTag("Barrier");
+      if (barrier != null) {
+          save.barrier = barrier.GetComponent<Barrier>().GetBarrierForSave(); 
+      } else {
+          save.barrier = null;
+      }
+      
 
       GameObject[] allBlocks = GameObject.FindGameObjectsWithTag("Block");
       foreach(GameObject block in allBlocks)
@@ -123,7 +131,14 @@ public class SaveLoadManager : MonoBehaviour
             pb.plasmaBallDuration = ballToLoad.plasmaBallDur;
           }
         }
-        Instantiate(racket, new Vector2(save.racket.position_x, -95), Quaternion.identity);
+
+        Instantiate(racket, new Vector2(save.racket.position_x, save.racket.position_y), Quaternion.identity);
+
+        if (save.barrier != null) 
+        {
+          Barrier b = Instantiate(barrier, new Vector2(0, -105), Quaternion.identity);
+          b.barrierDuration = save.barrier.barrierDur;
+        }
         GetComponent<SetBackground>().SetUpBackground(currentLvl);
         canvasBlocks.GetComponent<CanvasBlocksFromSave>().LoadBlocksFromSave(save.blocks, save.blocksSteel);
         GetComponent<CoinsFromSave>().LoadCoinsFromSave(save.coins);

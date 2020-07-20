@@ -13,7 +13,8 @@ public class Save
   public int lvl;
   public List<MovingObjectForSave> coins = new List<MovingObjectForSave>();
   public List<BonusForSave> bonuses = new List<BonusForSave>();
-  public ObjectForSave racket;
+  public RacketForSave racket;
+  public BarrierForSave barrier;
   public List<BlockForSave> blocks = new List<BlockForSave>();
   public List<BlockForSave> blocksSteel = new List<BlockForSave>();
   public List<ObjectForSave> telsIn = new List<ObjectForSave>();

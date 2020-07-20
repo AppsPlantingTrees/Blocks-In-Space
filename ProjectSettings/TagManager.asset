@@ -20,6 +20,7 @@ TagManager:
   - Coin
   - TeleportIn
   - CanvasGameInfo
+  - Barrier
   layers:
   - Default
   - TransparentFX

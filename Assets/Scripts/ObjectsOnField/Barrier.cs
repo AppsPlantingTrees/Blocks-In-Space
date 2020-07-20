@@ -5,8 +5,8 @@ using UnityEngine;
 public class Barrier : MonoBehaviour
 {
 
-    float barrierDuration;
-    bool isSemiTransparent = false;
+    public float barrierDuration;
+    private bool isSemiTransparent = false;
 
     void Start()
     {
@@ -37,5 +37,12 @@ public class Barrier : MonoBehaviour
         Destroy(collisionInfo.gameObject);
       }
     }
+
+  public BarrierForSave GetBarrierForSave() 
+  {
+    return new BarrierForSave() {
+       barrierDur = barrierDuration
+    };
+  }
 
 }
