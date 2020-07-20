@@ -123,15 +123,9 @@ public class SaveLoadManager : MonoBehaviour
             pb.plasmaBallDuration = ballToLoad.plasmaBallDur;
           }
         }
-        //if there is a glitch and no balls saved:
-        if (save.balls.Count < 1) 
-        {
-          Debug.Log("No balls saved, installing new default ball.");
-          Instantiate(ball, new Vector2(0, -75), Quaternion.identity);
-        }
         Instantiate(racket, new Vector2(save.racket.position_x, -95), Quaternion.identity);
         GetComponent<SetBackground>().SetUpBackground(currentLvl);
-        //canvasBlocks.GetComponent<CanvasBlocksFromSave>().LoadBlocksFromSave(save.blocks, save.blocksSteel);
+        canvasBlocks.GetComponent<CanvasBlocksFromSave>().LoadBlocksFromSave(save.blocks, save.blocksSteel);
         GetComponent<CoinsFromSave>().LoadCoinsFromSave(save.coins);
         GetComponent<BonusesFromSave>().LoadBonusesFromSave(save.bonuses);
         GetComponent<TelsFromSave>().LoadTelsFromSave(save.telsIn, save.telsOut);

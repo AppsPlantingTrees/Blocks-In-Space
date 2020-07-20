@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using UnityEngine.UI;
 
@@ -31,22 +30,23 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-      PlayerPrefs.SetInt("CurrentLvl", 5); //for test
-      //saveDataForTest();
+      //PlayerPrefs.SetInt("CurrentLvl", 1); //for test
       currentLvl = PlayerPrefs.GetInt("CurrentLvl", 1);
       canvasGameInfo.GetComponent<CanvasGameInfo>().StartGameInfo(currentLvl);
        
       //if there is a save - try to load it
       //if no - install current lvl prefabs:
-      StartNewLvl(); //for test
-      /*if (! GetComponent<SaveLoadManager>().tryLoadObjectsData(currentLvl))
+      //StartNewLvl(); //for test
+      if (! GetComponent<SaveLoadManager>().tryLoadObjectsData(currentLvl))
       {
         StartNewLvl();
-      }*/
+      }
 
       GameObject[] allBlocks = GameObject.FindGameObjectsWithTag("Block");
       winCounter = allBlocks.Length;
       //winCounter = 0; //for test
+
+      ShowMainMenu();
     }
 
     public void StartNewLvl() 
@@ -250,21 +250,8 @@ public class GameManager : MonoBehaviour
       Application.Quit();
     }
 
-    /*void onDestroy()
+    void OnApplicationQuit()
     {
-      QuitAndSave();
-      super.onDestroy();
-    }*/
-
-    void saveDataForTest()
-    {
-      PlayerPrefs.SetInt("Coins", 1000);
-      PlayerPrefs.SetInt("Balls", 3);
-
-      PlayerPrefs.SetFloat("BarrierDuration", 5f);
-      PlayerPrefs.SetFloat("PlasmaBallDuration", 5f);
-      PlayerPrefs.SetInt("PriceLife", 25);
-      PlayerPrefs.SetInt("PriceBarrier", 25);
-      PlayerPrefs.SetInt("PricePlasma", 25);
+        QuitAndSave();
     }
 }
