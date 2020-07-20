@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Ball : MonoBehaviour {
-    public const float SPEED_SLOW = 50.0f;
+    public const float SPEED_SLOW = 60.0f;
     public const float SPEED_NORMAL = 80.0f;
     public const float SPEED_FAST = 110.0f;
 
-    public const float MAX_SPEED = 150.0f;
+    public const float MAX_SPEED = 160.0f;
 
     public const int SLOW_DOWN = 0;
     public const int SPEED_UP = 1;
@@ -75,6 +75,8 @@ public class Ball : MonoBehaviour {
 
   public void ChangeSpeed (int change) 
   {
+    Rigidbody2D ballRb = GetComponent<Rigidbody2D>();
+    Vector2 direction = new Vector2(ballRb.velocity.x, ballRb.velocity.y).normalized;
     if (change == SPEED_UP) 
     {
       if (speed == SPEED_SLOW) {
@@ -89,6 +91,7 @@ public class Ball : MonoBehaviour {
         speed = SPEED_SLOW;
        }
     }
+    ballRb.velocity = direction * speed;
   }
 
   public BallForSave GetBallForSave() 
