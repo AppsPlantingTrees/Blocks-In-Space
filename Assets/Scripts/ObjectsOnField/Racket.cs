@@ -37,32 +37,32 @@ public class Racket : MonoBehaviour
     
 
     //FOR ANDROID:
-    float speed = 20f;
-    float screenCenterX;
-    Vector3 direction;
-    Vector3 touchPosition;
-    Rigidbody2D rb;
+    private float speed = 10f;
+    private Vector3 direction, touchPosition;
+    private Rigidbody2D RacketRB;
   
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        RacketRB = GetComponent<Rigidbody2D>();
     }
 
-    void Update () 
+    void Update() 
     {
-        if(Input.touchCount > 0)
-        {
-            Touch touch = Input.GetTouch(0);
-            touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
-            touchPosition.z = 0;
+      if(Input.touchCount > 0)
+      {
+          Touch touch = Input.GetTouch(0);
+          touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
+          if (touchPosition.y < 0)
+          {
             direction = touchPosition - transform.position;
-            rb.velocity = new Vector2(direction.x, 0) * speed;
+            RacketRB.velocity = new Vector2(direction.x, 0) * speed;
 
             if(touch.phase == TouchPhase.Ended)
             {
-                rb.velocity = Vector2.zero;
+                RacketRB.velocity = Vector2.zero;
             }
+          }
         }
     }
 
