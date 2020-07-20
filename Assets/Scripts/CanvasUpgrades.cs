@@ -86,11 +86,11 @@ public class CanvasUpgrades : MonoBehaviour
 
   public void HideMenuUpgrades()
   {
-    saveData();
-    addedCoins = 0;
+    saveData();    
     GameObject canvasGameInfo = GameObject.FindWithTag("CanvasGameInfo");
     canvasGameInfo.GetComponent<CanvasGameInfo>().UpdateLives(balls);
     canvasGameInfo.GetComponent<CanvasGameInfo>().UpdateGold(addedCoins);
+    addedCoins = 0;
     gameObject.SetActive(false);
   }
 
