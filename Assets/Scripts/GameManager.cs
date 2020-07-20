@@ -196,6 +196,7 @@ public class GameManager : MonoBehaviour
     public void ShowMainMenu()
     {
       DarkenScreenPauseTime();
+      SaveGame();
       //todo - you can just get data with getter/args!
       canvasGameInfo.GetComponent<CanvasGameInfo>().saveData();
       mainMenu.SetActive(true);
@@ -212,6 +213,7 @@ public class GameManager : MonoBehaviour
     public void ShowPauseMenu()
     {
       DarkenScreenPauseTime();
+      SaveGame();
       pauseMenu.SetActive(true);
     }
 
@@ -242,11 +244,16 @@ public class GameManager : MonoBehaviour
       }
     }
 
-    public void QuitAndSave() 
+    private void SaveGame()
     {
       PlayerPrefs.SetInt("CurrentLvl", currentLvl);
       GetComponent<SaveLoadManager>().saveObjectsData();
       canvasGameInfo.GetComponent<CanvasGameInfo>().saveData();
+    }
+
+    public void QuitAndSave() 
+    {
+      SaveGame();
       Application.Quit();
     }
 
