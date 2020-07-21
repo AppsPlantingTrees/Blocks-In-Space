@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
 
     float barrierDuration, plasmaBallDuration;
     private int currentCounter = 0, currentLvl;
-    private int winCounter = 100;
+    private int winCounter = 0;
     bool isAboutMenuInstatillated = false, isUpgradesMenuInstatillated = false;
 
     private const int MAX_LVL = 5;
@@ -44,6 +44,13 @@ public class GameManager : MonoBehaviour
 
       GameObject[] allBlocks = GameObject.FindGameObjectsWithTag("Block");
       winCounter = allBlocks.Length;
+      //quick fix for now:
+      if (winCounter == 0) {
+        Win(); 
+        return;
+      }
+      
+
       //winCounter = 0; //for test
 
       ShowMainMenu();
@@ -51,7 +58,8 @@ public class GameManager : MonoBehaviour
 
     public void StartNewLvl() 
     {
-      Debug.Log("Start new lvl: " + currentLvl);
+      //Debug.Log("Start new lvl: " + currentLvl);
+      PlayerPrefs.SetInt("CurrentLvl", currentLvl);
       CleanField();
       winScreen.SetActive(false);
       loseScreen.SetActive(false);
