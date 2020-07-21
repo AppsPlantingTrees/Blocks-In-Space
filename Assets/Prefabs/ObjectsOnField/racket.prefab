@@ -115,6 +115,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2c3f97ab1b870448951cc1397d56fe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lenRacket: 2
+  racket: {fileID: 4907001972444185461}
+  shortRacket: {fileID: 2906499622075125818, guid: da489836601527f4a8b79693819d45b3,
+    type: 3}
+  longRacket: {fileID: 6353704610863687383, guid: 589cfa3e182547848b70b6995366599e,
+    type: 3}
 --- !u!70 &1048756338421807832
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

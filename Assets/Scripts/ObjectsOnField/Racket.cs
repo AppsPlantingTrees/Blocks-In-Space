@@ -40,8 +40,13 @@ public class Racket : MonoBehaviour
     private float speed = 10f;
     private Vector3 direction, touchPosition;
     private Rigidbody2D RacketRB;
-  
+    private const int SHORT_RACKET = 1;
+    private const int NORMAL_RACKET = 2;
+    private const int LONG_RACKET = 3;
+    public int lenRacket = NORMAL_RACKET;
 
+    public Racket racket, shortRacket, longRacket;
+  
     private void Start()
     {
         RacketRB = GetComponent<Rigidbody2D>();
@@ -66,12 +71,33 @@ public class Racket : MonoBehaviour
         }
     }
 
-  public ObjectForSave GetRacketForSave() 
+  public void setShortRacket(float x, float y, bool needToDestroy)
   {
-    return new ObjectForSave() {
+    Racket r = Instantiate(shortRacket, new Vector2(x, y), Quaternion.identity);
+    r.lenRacket = SHORT_RACKET;
+    if (needToDestroy) Destroy(gameObject);
+  }  
+
+  public void setNormalRacket(float x, float y, bool needToDestroy)
+  {
+    Racket r = Instantiate(racket, new Vector2(x, y), Quaternion.identity);
+    r.lenRacket = NORMAL_RACKET;
+    if (needToDestroy) Destroy(gameObject);
+  } 
+
+  public void setLongRacket(float x, float y, bool needToDestroy)
+  {
+    Racket r = Instantiate(longRacket, new Vector2(x, y), Quaternion.identity);
+    r.lenRacket = LONG_RACKET;
+    if (needToDestroy) Destroy(gameObject);
+  }  
+
+  public RacketForSave GetRacketForSave() 
+  {
+    return new RacketForSave() {
        position_x = transform.position.x,
        position_y = transform.position.y,
+       len = lenRacket
     };
   }
-
 }

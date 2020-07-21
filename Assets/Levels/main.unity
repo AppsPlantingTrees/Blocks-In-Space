@@ -148,7 +148,7 @@ MonoBehaviour:
   levelsArray:
   - {fileID: 1259668393687368022, guid: 317ed42f7f8089b4ab2972a6deb30074, type: 3}
   - {fileID: 3925942948488854035, guid: 4858103e9f53bb84ea75081d016463a0, type: 3}
-  - {fileID: 382682034934098452, guid: 56fae49357b06d044a7eea2df48df33d, type: 3}
+  - {fileID: 3629270527003294306, guid: 56fae49357b06d044a7eea2df48df33d, type: 3}
   - {fileID: 9078046337379352355, guid: 81949986f6ed12747bfafae8a06132b7, type: 3}
   - {fileID: 8622272202807877146, guid: 0774b8b2b6bf3654f92b48c80a4d7a22, type: 3}
 --- !u!114 &264883707
@@ -506,6 +506,7 @@ GameObject:
   - component: {fileID: 849526191}
   - component: {fileID: 849526192}
   - component: {fileID: 849526193}
+  - component: {fileID: 849526194}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -671,8 +672,26 @@ MonoBehaviour:
   ball: {fileID: 3343424029394791247, guid: f470648f8da6c664cad4bbaa299f1a19, type: 3}
   ballPlasma: {fileID: 7800507830822378323, guid: 4e55b577f3412b54982f67ecfb1af919,
     type: 3}
-  racket: {fileID: 4907001972444185461, guid: 2ad2951838fff3d4592fe41c855771b3, type: 3}
+  barrier: {fileID: 5902696902322098630, guid: ac3638edf52352d43994dc5bdca64bdb, type: 3}
   canvasBlocks: {fileID: 264883709}
+--- !u!114 &849526194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849526185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2c3f97ab1b870448951cc1397d56fe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lenRacket: 2
+  racket: {fileID: 4907001972444185461, guid: 2ad2951838fff3d4592fe41c855771b3, type: 3}
+  shortRacket: {fileID: 2906499622075125818, guid: da489836601527f4a8b79693819d45b3,
+    type: 3}
+  longRacket: {fileID: 6353704610863687383, guid: 589cfa3e182547848b70b6995366599e,
+    type: 3}
 --- !u!1001 &895045154
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1566,7 +1585,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -64.29999, y: 18.5}
+  m_AnchoredPosition: {x: -64.29997, y: 18.5}
   m_SizeDelta: {x: 90, y: -1024.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1787627810 stripped
@@ -1671,7 +1690,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 66.20001, y: 9.900024}
+  m_AnchoredPosition: {x: 66.2, y: 9.900024}
   m_SizeDelta: {x: 90, y: -1022.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1549585792219384310

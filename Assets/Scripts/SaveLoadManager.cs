@@ -16,7 +16,6 @@ public class SaveLoadManager : MonoBehaviour
 {
     public Ball ball;
     public BallPlasma ballPlasma;
-    public Racket racket, racketShort, racketLong;
     public Barrier barrier;
     public Canvas canvasBlocks;
 
@@ -37,7 +36,13 @@ public class SaveLoadManager : MonoBehaviour
         }
       }
 
-      save.racket = GameObject.FindGameObjectWithTag("Racket").GetComponent<Racket>().GetRacketForSave(); 
+      GameObject racket = GameObject.FindGameObjectWithTag("Racket");
+      if (racket != null) {
+          save.racket = racket.GetComponent<Racket>().GetRacketForSave(); 
+      } else {
+          save.racket = null;
+      }
+
       GameObject barrier = GameObject.FindGameObjectWithTag("Barrier");
       if (barrier != null) {
           save.barrier = barrier.GetComponent<Barrier>().GetBarrierForSave(); 
@@ -107,10 +112,10 @@ public class SaveLoadManager : MonoBehaviour
           FileStream file = File.Open(Application.persistentDataPath + "/save.save", FileMode.Open);
           save = (Save)bf.Deserialize(file);
           file.Close();
-          Debug.Log("Data loaded");
+          //Debug.Log("Data loaded");
         }
         catch {
-          Debug.Log("Can't deserialize file");
+          //Debug.Log("Can't deserialize file");
           return false;
         }
 
@@ -132,10 +137,17 @@ public class SaveLoadManager : MonoBehaviour
           }
         }
 
-        Instantiate(racket, new Vector2(save.racket.position_x, save.racket.position_y), Quaternion.identity);
+        if (save.racket != null) {
+          if (save.racket.len == 1) {
+            GetComponent<Racket>().setShortRacket(save.racket.position_x, save.racket.position_y, false);
+          } else if (save.racket.len == 3) {
+            GetComponent<Racket>().setLongRacket(save.racket.position_x, save.racket.position_y, false);
+          } else {
+            GetComponent<Racket>().setNormalRacket(save.racket.position_x, save.racket.position_y, false);
+          }
+        }
 
-        if (save.barrier != null) 
-        {
+        if (save.barrier != null) {
           Barrier b = Instantiate(barrier, new Vector2(0, -105), Quaternion.identity);
           b.barrierDuration = save.barrier.barrierDur;
         }

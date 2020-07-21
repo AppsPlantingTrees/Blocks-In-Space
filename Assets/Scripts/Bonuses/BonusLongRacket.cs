@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class BonusLongRacket : Bonus
 {
-  public GameObject longRacket;
-
    public override void GetBonus()
    {
-       GameObject racket = GameObject.FindWithTag("Racket");
-       Instantiate(longRacket, new Vector2(racket.transform.position.x, racket.transform.position.y), Quaternion.identity);
-       Destroy(racket.gameObject);
+      Racket racket = GameObject.FindWithTag("Racket").GetComponent<Racket>();
+      //if it's short racket, make it normal:
+      if (racket.lenRacket == 1) {
+         racket.setNormalRacket(racket.transform.position.x, racket.transform.position.y, true);
+      //if it's normal make it long:
+      } else {
+         racket.setLongRacket(racket.transform.position.x, racket.transform.position.y, true);
+      }  
    }
 }

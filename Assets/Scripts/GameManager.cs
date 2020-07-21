@@ -197,16 +197,12 @@ public class GameManager : MonoBehaviour
     {
       DarkenScreenPauseTime();
       SaveGame();
-      //todo - you can just get data with getter/args!
-      canvasGameInfo.GetComponent<CanvasGameInfo>().saveData();
       mainMenu.SetActive(true);
     }
 
     public void HideMainMenu()
     {
       mainMenu.SetActive(false);
-      //todo - use setter! don't need to use prefs here!
-      canvasGameInfo.GetComponent<CanvasGameInfo>().loadData();
       UndarkenScreenUnpauseTime();
     }
 
@@ -242,6 +238,8 @@ public class GameManager : MonoBehaviour
         upgradesMenu = Instantiate(upgradesMenu, new Vector2(0, 0), Quaternion.identity);
         isUpgradesMenuInstatillated = true;
       }
+      //todo - you can just get data with getter/args!
+      canvasGameInfo.GetComponent<CanvasGameInfo>().saveData();
     }
 
     private void SaveGame()
