@@ -8,12 +8,11 @@ Coin class, collision with Racket increases amount of coins.
 
 public class Coin : MonoBehaviour
 {
-   private const int COIN_VALUE = 1;
    void OnCollisionEnter2D(Collision2D collisionInfo)
    {
       if (collisionInfo.gameObject.tag == "Racket")
       {
-         GameObject.FindWithTag("CanvasGameInfo").GetComponent<CanvasGameInfo>().UpdateGold(COIN_VALUE);
+         GameObject.FindWithTag("CanvasGameInfo").GetComponent<CanvasGameInfo>().UpdateGoldCatchedCoin();
          Destroy(gameObject);           
       }
    }

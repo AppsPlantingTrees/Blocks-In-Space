@@ -32,8 +32,14 @@ public class CanvasGameInfo : MonoBehaviour
 
     public void UpdateGold(int coinsToAdd)
     {
-        coins += coinsToAdd;
-        coinsThisLevel += coinsToAdd;
+        coins += coinsToAdd;       
+        displayCoins.GetComponent<Text>().text = "" + coins;
+    }
+
+    public void UpdateGoldCatchedCoin()
+    {
+        coins++;
+        coinsThisLevel++;
         displayCoins.GetComponent<Text>().text = "" + coins;
     }
 
