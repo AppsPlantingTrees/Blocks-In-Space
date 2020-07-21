@@ -166,6 +166,8 @@ public class GameManager : MonoBehaviour
     void UndarkenScreenUnpauseTime()
     {
       canvasDarkenScreen.SetActive(false);
+      GameObject[] allBlocks = GameObject.FindGameObjectsWithTag("Block");
+      winCounter = allBlocks.Length;
       Time.timeScale = 1.0f;
     }
 
