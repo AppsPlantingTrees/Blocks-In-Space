@@ -27,6 +27,7 @@ public class CanvasGameInfo : MonoBehaviour
 
     public void UpdateLives(int ballsUpdated)
     {
+        balls = ballsUpdated;
         displayBalls.GetComponent<Text>().text = "" + ballsUpdated;
     }
 
