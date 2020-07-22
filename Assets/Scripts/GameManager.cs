@@ -30,27 +30,18 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-      //PlayerPrefs.SetInt("CurrentLvl", 1); //for test
+      //PlayerPrefs.SetInt("CurrentLvl", 4); //for test
       currentLvl = PlayerPrefs.GetInt("CurrentLvl", 1);
+      currentCounter = PlayerPrefs.GetInt("CurrentCounter", 0);
+      winCounter = PlayerPrefs.GetInt("WinCounter", 0);
       canvasGameInfo.GetComponent<CanvasGameInfo>().StartGameInfo(currentLvl);
        
       //if there is a save - try to load it
       //if no - install current lvl prefabs:
-      //StartNewLvl(); //for test
       if (! GetComponent<SaveLoadManager>().tryLoadObjectsData(currentLvl))
       {
         StartNewLvl();
       }
-
-      GameObject[] allBlocks = GameObject.FindGameObjectsWithTag("Block");
-      winCounter = allBlocks.Length;
-      //quick fix for now:
-      if (winCounter == 0) {
-        Win(); 
-        return;
-      }
-      
-
       //winCounter = 0; //for test
 
       ShowMainMenu();
@@ -74,12 +65,13 @@ public class GameManager : MonoBehaviour
       canvasGameInfo.GetComponent<CanvasGameInfo>().setCoinsThisLevelToNull(); 
 
       currentCounter = 0;
+      PlayerPrefs.SetInt("CurrentCounter", currentCounter);
 
       GameObject[] allBlocks = GameObject.FindGameObjectsWithTag("Block");
       winCounter = allBlocks.Length;
+      PlayerPrefs.SetInt("WinCounter", winCounter);
 
       UndarkenScreenUnpauseTime();
-      Debug.Log("winCounter: " + winCounter);
     }
 
     private void CleanField() 
@@ -174,8 +166,6 @@ public class GameManager : MonoBehaviour
     void UndarkenScreenUnpauseTime()
     {
       canvasDarkenScreen.SetActive(false);
-      GameObject[] allBlocks = GameObject.FindGameObjectsWithTag("Block");
-      winCounter = allBlocks.Length;
       Time.timeScale = 1.0f;
     }
 
@@ -255,6 +245,9 @@ public class GameManager : MonoBehaviour
     private void SaveGame()
     {
       PlayerPrefs.SetInt("CurrentLvl", currentLvl);
+      PlayerPrefs.SetInt("CurrentCounter", currentCounter);
+      PlayerPrefs.SetInt("WinCounter", winCounter);
+
       GetComponent<SaveLoadManager>().saveObjectsData();
       canvasGameInfo.GetComponent<CanvasGameInfo>().saveData();
     }
