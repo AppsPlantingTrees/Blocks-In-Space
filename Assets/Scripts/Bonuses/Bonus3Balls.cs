@@ -17,20 +17,17 @@ public class Bonus3Balls : Bonus
          foreach(GameObject ball in allBalls)
          {
             GameObject obj = Instantiate(ballCopy, new Vector2(ball.transform.position.x, ball.transform.position.y), Quaternion.identity);
-            obj.GetComponent<Rigidbody2D>().velocity = new Vector2(speed, 0);
+            obj.GetComponent<Rigidbody2D>().velocity = new Vector2(speed, 10);
             GameObject obj2 = Instantiate(ballCopy, new Vector2(ball.transform.position.x, ball.transform.position.y), Quaternion.identity);
             obj2.GetComponent<Rigidbody2D>().velocity = new Vector2(speed, speed);
          }
        } else {
          foreach(GameObject ball in allBalls)
          {
-             for (int i = 0; i < 2; i++)
-             {
-               GameObject obj = Instantiate(plasmaBallCopy, new Vector2(ball.transform.position.x, ball.transform.position.y), Quaternion.identity);
-               obj.GetComponent<Rigidbody2D>().velocity = new Vector2(speed, 0);
-               GameObject obj2 = Instantiate(plasmaBallCopy, new Vector2(ball.transform.position.x, ball.transform.position.y), Quaternion.identity);
-               obj2.GetComponent<Rigidbody2D>().velocity = new Vector2(speed, speed);
-             }
+            GameObject obj = Instantiate(plasmaBallCopy, new Vector2(ball.transform.position.x, ball.transform.position.y), Quaternion.identity);
+            obj.GetComponent<Rigidbody2D>().velocity = new Vector2(speed, 10);
+            GameObject obj2 = Instantiate(plasmaBallCopy, new Vector2(ball.transform.position.x, ball.transform.position.y), Quaternion.identity);
+            obj2.GetComponent<Rigidbody2D>().velocity = new Vector2(speed, speed);
           }
        }
    }
