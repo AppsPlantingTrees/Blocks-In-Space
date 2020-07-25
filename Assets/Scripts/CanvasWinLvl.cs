@@ -14,7 +14,12 @@ public class CanvasWinLvl : MonoBehaviour
         "<link=\"https://unsplash.com/@jeremythomasphoto\"><u>Jeremy Thomas</u></link>", 
         "<link=\"https://unsplash.com/@gferla\"><u>Guillermo Ferla</u></link>",
         "<link=\"https://unsplash.com/@gferla\"><u>Guillermo Ferla</u></link>", 
-        "<link=\"https://unsplash.com/@nasa\"><u>NASA</u></link>"};
+        "<link=\"https://unsplash.com/@nasa\"><u>NASA</u></link>",
+        "<link=\"https://unsplash.com/@alex_andrews\"><u>Alexander Andrews</u></link> and <link=\"https://unsplash.com/@bryangoffphoto\"><u>Bryan Goff</u></link>",
+        "<link=\"https://unsplash.com/@gferla\"><u>Guillermo Ferla</u></link>",
+        "<link=\"https://unsplash.com/@nasa\"><u>NASA</u></link>",
+        "<link=\"https://unsplash.com/@nasa\"><u>NASA</u></link>",
+        "<link=\"https://unsplash.com/@gferla\"><u>Guillermo Ferla</u></link>",};
 
 
     public void SetUpCanvas(int currentLvl)
@@ -24,7 +29,7 @@ public class CanvasWinLvl : MonoBehaviour
         buttonX2ForAd.SetActive(true);
         textCoins.GetComponent<Text>().text = "COINS: " + coinsThisLevel;
         textScore.GetComponent<Text>().text = "SCORE: " + (scoreThisLevel + 100);
-        textPhoto.GetComponent<TextMeshProUGUI>().text = "Photos by " + photoAutor[currentLvl-1];
+        textPhoto.GetComponent<TextMeshProUGUI>().text = "Background based on photos<br> by " + photoAutor[currentLvl-1];
     }
 
     public void x2CoinsForAd() 
