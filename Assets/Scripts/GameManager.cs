@@ -21,16 +21,17 @@ public class GameManager : MonoBehaviour
     Canvas blocks;
 
     float barrierDuration, plasmaBallDuration;
-    private int currentCounter = 0, currentLvl;
-    private int winCounter = 0;
+    private static int currentCounter = 0, currentLvl;
+    private static int winCounter = 0;
     bool isAboutMenuInstatillated = false, isUpgradesMenuInstatillated = false;
+    private int[] winCounters = {27, 37, 55, 56, 51, 50, 46, 33, 56, 59};
 
-    private const int MAX_LVL = 5;
+    private const int MAX_LVL = 10;
 
 
     void Start()
     {
-      //PlayerPrefs.SetInt("CurrentLvl", 4); //for test
+      PlayerPrefs.SetInt("CurrentLvl", 6); //for test
       currentLvl = PlayerPrefs.GetInt("CurrentLvl", 1);
       currentCounter = PlayerPrefs.GetInt("CurrentCounter", 0);
       winCounter = PlayerPrefs.GetInt("WinCounter", 0);
@@ -38,11 +39,12 @@ public class GameManager : MonoBehaviour
        
       //if there is a save - try to load it
       //if no - install current lvl prefabs:
-      if (! GetComponent<SaveLoadManager>().tryLoadObjectsData(currentLvl))
+      /*if (! GetComponent<SaveLoadManager>().tryLoadObjectsData(currentLvl))
       {
         StartNewLvl();
-      }
+      }*/
       //winCounter = 0; //for test
+      StartNewLvl();
 
       ShowMainMenu();
     }
@@ -67,8 +69,10 @@ public class GameManager : MonoBehaviour
       currentCounter = 0;
       PlayerPrefs.SetInt("CurrentCounter", currentCounter);
 
-      GameObject[] allBlocks = GameObject.FindGameObjectsWithTag("Block");
+      /*GameObject[] allBlocks = GameObject.FindGameObjectsWithTag("Block");
       winCounter = allBlocks.Length;
+      Debug.Log("winCounter: " + winCounter);*/
+      winCounter = winCounters[currentLvl-1];
       PlayerPrefs.SetInt("WinCounter", winCounter);
 
       UndarkenScreenUnpauseTime();
@@ -171,7 +175,7 @@ public class GameManager : MonoBehaviour
 
     public void NewGame()
     {
-      //todo - make coins null??
+      PlayerPrefs.SetInt("Coins", 0);
       PlayerPrefs.SetInt("Score", 0);
       PlayerPrefs.SetInt("Balls", 3);
       PlayerPrefs.SetInt("CurrentLvl", 1);
