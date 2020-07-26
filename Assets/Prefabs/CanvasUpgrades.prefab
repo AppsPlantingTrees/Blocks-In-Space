@@ -883,6 +883,8 @@ MonoBehaviour:
   textPlasma: {fileID: 7104006039056359253}
   textBarrier: {fileID: 7104006040100969187}
   textBall: {fileID: 7104006038879207481}
+  buttonAd: {fileID: 7104006040017501478}
+  textButtonAd: {fileID: 7104006040767276552}
   textButtonAddDurPlasma: {fileID: 7104006040046847142}
   textButtonAddDurBarrier: {fileID: 7104006040576624535}
   textButtonAddBall: {fileID: 7104006039166764148}
@@ -1891,9 +1893,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
     m_FontSize: 36
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 1
-    m_MaxSize: 40
+    m_BestFit: 1
+    m_MinSize: 12
+    m_MaxSize: 36
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1

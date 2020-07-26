@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI; 
 using TMPro;
+using AppodealAds.Unity.Api;
+using AppodealAds.Unity.Common;
 
 public class CanvasWinLvl : MonoBehaviour
 {
     public GameObject canvasGameInfo;
     public GameObject textCoins, textScore, textPhoto, buttonX2ForAd;
+    private int typeOfAd;
 
     private string[] photoAutor = {
         "<link=\"https://unsplash.com/@nasa\"><u>NASA</u></link>", 
@@ -22,8 +25,9 @@ public class CanvasWinLvl : MonoBehaviour
         "<link=\"https://unsplash.com/@gferla\"><u>Guillermo Ferla</u></link>",};
 
 
-    public void SetUpCanvas(int currentLvl)
+    public void SetUpCanvas(int currentLvl, int typeOfAdvertisement)
     {
+        typeOfAd = typeOfAdvertisement;
         int coinsThisLevel = canvasGameInfo.GetComponent<CanvasGameInfo>().getCoinsThisLevel();
         int scoreThisLevel = canvasGameInfo.GetComponent<CanvasGameInfo>().getScoreThisLevel();
         buttonX2ForAd.SetActive(true);
@@ -34,6 +38,12 @@ public class CanvasWinLvl : MonoBehaviour
 
     public void x2CoinsForAd() 
     {
+        //use Video ads for newer Android versions and Interstitial for old:
+        if (Appodeal.canShow(typeOfAd))
+        {
+            Appodeal.show(typeOfAd);
+        }
+
         int coinsThisLevel = canvasGameInfo.GetComponent<CanvasGameInfo>().getCoinsThisLevel();
         textCoins.GetComponent<Text>().text = "COINS: " + 2 * coinsThisLevel;
         //increase amount of coins on the screen and in the game:

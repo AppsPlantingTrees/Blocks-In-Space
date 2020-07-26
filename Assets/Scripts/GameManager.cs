@@ -4,10 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.IO;
 using UnityEngine.UI;
+using AppodealAds.Unity.Api;
+using AppodealAds.Unity.Common;
 
 /*
 Main object, manage game state, menus and screens,
-count levels and broken blocks.
+count levels and broken blocks. Loads ads.
 */
 
 public class GameManager : MonoBehaviour
@@ -25,13 +27,18 @@ public class GameManager : MonoBehaviour
     private static int winCounter = 0;
     bool isAboutMenuInstatillated = false, isUpgradesMenuInstatillated = false;
     private int[] winCounters = {27, 37, 55, 56, 51, 50, 46, 33, 56, 59};
+    private const string APPODEAL_KEY = "b5460f397e403c19683b360077da0fe5c73082a06764ee71";
+    private const bool IS_APPODEAL_TEST = true; //for test
+    private static int typeOfAd;
 
     private const int MAX_LVL = 10;
 
 
     void Start()
     {
-      PlayerPrefs.SetInt("CurrentLvl", 6); //for test
+      setUpAppodealAds();
+
+      PlayerPrefs.SetInt("CurrentLvl", 7); //for test
       currentLvl = PlayerPrefs.GetInt("CurrentLvl", 1);
       currentCounter = PlayerPrefs.GetInt("CurrentCounter", 0);
       winCounter = PlayerPrefs.GetInt("WinCounter", 0);
@@ -43,8 +50,8 @@ public class GameManager : MonoBehaviour
       {
         StartNewLvl();
       }*/
-      //winCounter = 0; //for test
       StartNewLvl();
+      //winCounter = 0; //for test
 
       ShowMainMenu();
     }
@@ -146,7 +153,7 @@ public class GameManager : MonoBehaviour
       if (currentLvl < MAX_LVL)
       {
         winScreen.SetActive(true);
-        winScreen.GetComponent<CanvasWinLvl>().SetUpCanvas(currentLvl);        
+        winScreen.GetComponent<CanvasWinLvl>().SetUpCanvas(currentLvl, typeOfAd);        
       } else {
         //it was last lvl, you win the game:
         winGameScreen.SetActive(true);
@@ -265,5 +272,41 @@ public class GameManager : MonoBehaviour
     void OnApplicationQuit()
     {
         QuitAndSave();
+    }
+
+    private void setUpAppodealAds() 
+    {
+      //use Video ads for newer Android versions and Interstitial for old:
+      typeOfAd = Appodeal.REWARDED_VIDEO;
+      int androidlvl = getSDKInt();
+      if (androidlvl < 21) //21 for LOLLIPOP
+      {
+        typeOfAd = Appodeal.INTERSTITIAL;
+      }
+
+      //disable unused/unnessesary stuff:
+      Appodeal.disableNetwork(AppodealNetworks.STARTAPP);
+      Appodeal.disableNetwork(AppodealNetworks.MINTEGRAL);
+      Appodeal.disableNetwork(AppodealNetworks.MY_TARGET);
+      Appodeal.disableNetwork(AppodealNetworks.YANDEX);
+      Appodeal.disableNetwork(AppodealNetworks.SMAATO);
+      Appodeal.disableNetwork(AppodealNetworks.FACEBOOK);
+      Appodeal.disableLocationPermissionCheck();
+      Appodeal.disableWriteExternalStoragePermissionCheck();
+
+      Appodeal.setTesting(IS_APPODEAL_TEST);
+
+      //check consent, defaut is false:
+      bool consent = false;
+      int cons = PlayerPrefs.GetInt("result_gdpr_sdk", 0);
+      if (cons == 1) consent = true;
+      Appodeal.initialize(APPODEAL_KEY, typeOfAd, consent);
+    }
+
+    static int getSDKInt() 
+    {
+       using (var version = new AndroidJavaClass("android.os.Build$VERSION")) {
+         return version.GetStatic<int>("SDK_INT");
+       }
     }
 }
