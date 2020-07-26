@@ -44,7 +44,6 @@ public class GDPR : MonoBehaviour
         Application.OpenURL("https://www.appodeal.com/privacy-policy");
     }
 
-    [Obsolete]
     public void onCloseClick()
     {
         Application.LoadLevel("main");
