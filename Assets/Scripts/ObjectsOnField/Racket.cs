@@ -5,7 +5,12 @@ using UnityEngine.UI;
 
 public class Racket : MonoBehaviour
 {
-    /*public float speedPC = 150;
+    /*public float speedPC = 100;
+    private const int SHORT_RACKET = 1;
+    private const int NORMAL_RACKET = 2;
+    private const int LONG_RACKET = 3;
+    public int lenRacket = NORMAL_RACKET;
+    public Racket racket, shortRacket, longRacket;
     //bool isMagnet = false;
     //GameObject ball;
 
@@ -15,25 +20,26 @@ public class Racket : MonoBehaviour
         float h = Input.GetAxisRaw("Horizontal");
 
         // Set Velocity (movement direction * speed)
-        GetComponent<Rigidbody2D>().velocity = Vector2.right * h * speedPC;
+        gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.right * h * speedPC;
 
         //if (isMagnet) {
         //  ball.GetComponent<Rigidbody>().isKinematic = true;
         //}
-    }*/
+    }
 
-    /*void OnCollisionEnter2D(Collision2D collisionInfo)
+    void OnCollisionEnter2D(Collision2D collisionInfo)
     {
       //if (collisionInfo.gameObject.tag == "Ball" && isMagnet) {
       //  ball = collisionInfo.gameObject;
       //  ball.GetComponent<Rigidbody>().isKinematic = false;
       //}
-    }*/
+    }
 
-    /*public void MagnetRacket()
-    {
-      isMagnet = true;
-    }*/
+    //public void MagnetRacket()
+    //{
+    //  isMagnet = true;
+    //}
+    */
     
 
     //FOR ANDROID:

@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     bool isAboutMenuInstatillated = false, isUpgradesMenuInstatillated = false;
     private int[] winCounters = {27, 37, 55, 56, 51, 50, 46, 33, 56, 59};
     private const string APPODEAL_KEY = "b5460f397e403c19683b360077da0fe5c73082a06764ee71";
-    private const bool IS_APPODEAL_TEST = true; //for test
+    private const bool IS_APPODEAL_TEST = false; //for test
     private static int typeOfAd;
 
     private const int MAX_LVL = 10;
@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
     {
       setUpAppodealAds();
 
-      PlayerPrefs.SetInt("CurrentLvl", 7); //for test
+      //PlayerPrefs.SetInt("CurrentLvl", 7); //for test
       currentLvl = PlayerPrefs.GetInt("CurrentLvl", 1);
       currentCounter = PlayerPrefs.GetInt("CurrentCounter", 0);
       winCounter = PlayerPrefs.GetInt("WinCounter", 0);
@@ -46,11 +46,10 @@ public class GameManager : MonoBehaviour
        
       //if there is a save - try to load it
       //if no - install current lvl prefabs:
-      /*if (! GetComponent<SaveLoadManager>().tryLoadObjectsData(currentLvl))
+      if (! GetComponent<SaveLoadManager>().tryLoadObjectsData(currentLvl))
       {
         StartNewLvl();
-      }*/
-      StartNewLvl();
+      }
       //winCounter = 0; //for test
 
       ShowMainMenu();
@@ -243,14 +242,16 @@ public class GameManager : MonoBehaviour
 
     public void OpenOrShowUpgradesMenu()
     {
+      //todo - you can just get data with getter/args!
+      canvasGameInfo.GetComponent<CanvasGameInfo>().saveData();
+
       if (isUpgradesMenuInstatillated) {
         upgradesMenu.SetActive(true);
       } else {
         upgradesMenu = Instantiate(upgradesMenu, new Vector2(0, 0), Quaternion.identity);
         isUpgradesMenuInstatillated = true;
       }
-      //todo - you can just get data with getter/args!
-      canvasGameInfo.GetComponent<CanvasGameInfo>().saveData();
+      upgradesMenu.GetComponent<CanvasUpgrades>().startUpgrades(typeOfAd);
     }
 
     private void SaveGame()

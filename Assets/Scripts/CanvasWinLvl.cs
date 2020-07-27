@@ -28,9 +28,13 @@ public class CanvasWinLvl : MonoBehaviour
     public void SetUpCanvas(int currentLvl, int typeOfAdvertisement)
     {
         typeOfAd = typeOfAdvertisement;
+        if (Appodeal.canShow(typeOfAd)) {
+            buttonX2ForAd.SetActive(true);
+        } else {
+            buttonX2ForAd.SetActive(false);
+        }
         int coinsThisLevel = canvasGameInfo.GetComponent<CanvasGameInfo>().getCoinsThisLevel();
         int scoreThisLevel = canvasGameInfo.GetComponent<CanvasGameInfo>().getScoreThisLevel();
-        buttonX2ForAd.SetActive(true);
         textCoins.GetComponent<Text>().text = "COINS: " + coinsThisLevel;
         textScore.GetComponent<Text>().text = "SCORE: " + (scoreThisLevel + 100);
         textPhoto.GetComponent<TextMeshProUGUI>().text = "Background based on photos<br> by " + photoAutor[currentLvl-1];

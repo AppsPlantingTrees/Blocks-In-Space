@@ -10,20 +10,29 @@ public class CanvasUpgrades : MonoBehaviour
   private int coins, balls, priceLife, priceBarrier, pricePlasma;
   private int addedCoins;
   private int adCounter = 0;
-  private const int ADS_PER_DAY = 1; //ads at the end of lvl not counts here
+  private const int ADS_PER_DAY = 10; //ads at the end of lvl not counts here
   float barrierDuration, plasmaBallDuration;
   public GameObject amountOfCoins, textPlasma, textBarrier, textBall, buttonAd,
   textButtonAd, textButtonAddDurPlasma, textButtonAddDurBarrier, textButtonAddBall;
+  private static int typeOfAd;
 
-  void Start()
+  public void startUpgrades(int typeOfAdvertising)
   {
     addedCoins = 0;
     loadData();
-    if (adCounter >= ADS_PER_DAY)
-    {
+    
+    typeOfAd = typeOfAdvertising;
+
+    if (!Appodeal.canShow(typeOfAd)) {
+      textButtonAd.GetComponent<Text>().text = "Ads are unavailable now";
+      buttonAd.GetComponent<Button>().interactable = false;
+    } else if (adCounter >= ADS_PER_DAY) {
       Debug.Log("stop ads, adCounter: " + adCounter);
       textButtonAd.GetComponent<Text>().text = "No more ads here for today";
       buttonAd.GetComponent<Button>().interactable = false;
+    } else {
+      textButtonAd.GetComponent<Text>().text = "+10 coins for Video Ad";
+      buttonAd.GetComponent<Button>().interactable = true;
     }
   }
 
@@ -31,7 +40,6 @@ public class CanvasUpgrades : MonoBehaviour
   {
     //counter to disable video ads here after 15/day:
     int currentDay = System.DateTime.Now.Day;
-    Debug.Log("currentDay: " + currentDay);
     if (currentDay != PlayerPrefs.GetInt("SavedDay", 0)) {
       adCounter = 0;
       PlayerPrefs.SetInt("SavedDay", currentDay);
@@ -50,18 +58,15 @@ public class CanvasUpgrades : MonoBehaviour
 
   public void watchVideoAd()
   {
-    //use Video ads for newer Android versions and Interstitial for old:
-    int typeOfAd = Appodeal.REWARDED_VIDEO;
-    int androidlvl = getSDKInt();
-    if (androidlvl < 21) //21 for LOLLIPOP
-    {
-      typeOfAd = Appodeal.INTERSTITIAL;
-    }
-
     if (Appodeal.canShow(typeOfAd))
     {
       adCounter++;
       Appodeal.show(typeOfAd);
+    }
+
+    if (adCounter >= ADS_PER_DAY) {
+      textButtonAd.GetComponent<Text>().text = "No more ads here for today";
+      buttonAd.GetComponent<Button>().interactable = false;
     }
 
     coins += 10;
@@ -137,12 +142,5 @@ public class CanvasUpgrades : MonoBehaviour
     PlayerPrefs.SetInt("PriceLife", priceLife);
     PlayerPrefs.SetInt("PriceBarrier", priceBarrier);
     PlayerPrefs.SetInt("PricePlasma", pricePlasma);
-  }
-
-  static int getSDKInt() 
-  {
-      using (var version = new AndroidJavaClass("android.os.Build$VERSION")) {
-        return version.GetStatic<int>("SDK_INT");
-      }
   }
 }

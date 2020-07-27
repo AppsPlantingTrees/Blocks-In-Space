@@ -658,7 +658,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2c3f97ab1b870448951cc1397d56fe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedPC: 100
   lenRacket: 2
   racket: {fileID: 4907001972444185461, guid: 2ad2951838fff3d4592fe41c855771b3, type: 3}
   shortRacket: {fileID: 2906499622075125818, guid: da489836601527f4a8b79693819d45b3,
@@ -1218,7 +1217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.19607843}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.39215687}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2833,7 +2832,7 @@ MonoBehaviour:
     m_FontStyle: 1
     m_BestFit: 1
     m_MinSize: 4
-    m_MaxSize: 50
+    m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
