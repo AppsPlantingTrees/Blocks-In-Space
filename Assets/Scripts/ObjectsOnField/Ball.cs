@@ -5,7 +5,7 @@ using UnityEngine;
 public class Ball : MonoBehaviour {
     public const float SPEED_SLOW = 60.0f;
     public const float SPEED_NORMAL = 80.0f;
-    public const float SPEED_FAST = 110.0f;
+    public const float SPEED_FAST = 120.0f;
 
     public const float MAX_SPEED = 160.0f;
 
