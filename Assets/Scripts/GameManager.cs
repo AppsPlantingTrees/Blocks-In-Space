@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
     {
       setUpAppodealAds();
 
-      //PlayerPrefs.SetInt("CurrentLvl", 7); //for test
+      //PlayerPrefs.SetInt("CurrentLvl", 1); //for test
       currentLvl = PlayerPrefs.GetInt("CurrentLvl", 1);
       currentCounter = PlayerPrefs.GetInt("CurrentCounter", 0);
       winCounter = PlayerPrefs.GetInt("WinCounter", 0);
@@ -260,7 +260,7 @@ public class GameManager : MonoBehaviour
       PlayerPrefs.SetInt("CurrentCounter", currentCounter);
       PlayerPrefs.SetInt("WinCounter", winCounter);
 
-      GetComponent<SaveLoadManager>().saveObjectsData();
+      GetComponent<SaveLoadManager>().saveObjectsData(currentLvl);
       canvasGameInfo.GetComponent<CanvasGameInfo>().saveData();
     }
 
