@@ -19,9 +19,11 @@ public class SaveLoadManager : MonoBehaviour
     public Barrier barrier;
     public Canvas canvasBlocks;
 
-    public Save CreateSaveObject()
+    public Save CreateSaveObject(int currentLvl)
     {
       Save save = new Save();
+
+      save.lvl = currentLvl;
       
       GameObject[] allBalls = GameObject.FindGameObjectsWithTag("Ball");
       BallPlasma pb = (BallPlasma)FindObjectOfType(typeof(BallPlasma));
@@ -90,9 +92,9 @@ public class SaveLoadManager : MonoBehaviour
       return save;
     }
 
-    public void saveObjectsData()
+    public void saveObjectsData(int currentLvl)
     {
-      Save save = CreateSaveObject();
+      Save save = CreateSaveObject(currentLvl);
       BinaryFormatter bf = new BinaryFormatter();
       FileStream file = File.Create(Application.persistentDataPath + "/save.save");
       bf.Serialize(file, save);
@@ -118,6 +120,8 @@ public class SaveLoadManager : MonoBehaviour
           Debug.Log("Can't deserialize file");
           return false;
         }
+
+        if (currentLvl != save.lvl) return false;
 
         foreach(BallForSave ballToLoad in save.balls)
         {
