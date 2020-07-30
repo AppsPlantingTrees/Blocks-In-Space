@@ -67,6 +67,12 @@ public class CanvasBlocksFromSave : MonoBehaviour
             case "BlockBonusSpeedUp":
                 index = 17;
                 break;
+            case "BlockBonusEnlargeBall":
+                index = 18;
+                break;
+            case "BlockBonusSmallerBall":
+                index = 19;
+                break;
             }
             Block b = Instantiate(blocksArray[index], new Vector2(blockToLoad.position_x, 
                     blockToLoad.position_y), Quaternion.identity);

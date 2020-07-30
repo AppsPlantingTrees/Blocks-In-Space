@@ -43,6 +43,12 @@ public Bonus[] bonusesArray;
             case "Life":
                 index = 9;
                 break;
+            case "BonusEnlargeBall":
+                index = 10;
+                break;
+            case "BonusSmallerBall":
+                index = 11;
+                break;
             }
             Bonus b = Instantiate(bonusesArray[index], new Vector2(bonusToLoad.position_x, 
                     bonusToLoad.position_y), Quaternion.identity);

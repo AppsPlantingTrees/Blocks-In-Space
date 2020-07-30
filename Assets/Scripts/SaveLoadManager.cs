@@ -115,7 +115,7 @@ public class SaveLoadManager : MonoBehaviour
           //Debug.Log("Data loaded");
         }
         catch {
-          //Debug.Log("Can't deserialize file");
+          Debug.Log("Can't deserialize file");
           return false;
         }
 
@@ -127,6 +127,7 @@ public class SaveLoadManager : MonoBehaviour
             b.GetComponent<Rigidbody2D>().velocity = new Vector2(ballToLoad.velocity_x, 
                       ballToLoad.velocity_y);
             b.speed = ballToLoad.speed;
+            b.gameObject.transform.localScale = new Vector3(ballToLoad.scale, ballToLoad.scale, 1);
           } else {
             BallPlasma pb = Instantiate(ballPlasma, new Vector2(ballToLoad.position_x, 
                       ballToLoad.position_y), Quaternion.identity);
@@ -134,6 +135,7 @@ public class SaveLoadManager : MonoBehaviour
                       ballToLoad.velocity_y);
             pb.speed = ballToLoad.speed;
             pb.plasmaBallDuration = ballToLoad.plasmaBallDur;
+            pb.gameObject.transform.localScale = new Vector3(ballToLoad.scale, ballToLoad.scale, 1);
           }
         }
 

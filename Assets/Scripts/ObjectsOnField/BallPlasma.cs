@@ -46,6 +46,8 @@ public class BallPlasma : Ball
      {
        GameObject obj = Instantiate(ball, new Vector2(plasmaBall.transform.position.x, plasmaBall.transform.position.y), Quaternion.identity);
        obj.GetComponent<Rigidbody2D>().velocity = plasmaBall.GetComponent<Rigidbody2D>().velocity;
+       Vector3 scale = new Vector3(plasmaBall.gameObject.transform.localScale.x/130, plasmaBall.gameObject.transform.localScale.y/130, 1);
+       obj.gameObject.transform.localScale = scale;
        Destroy(plasmaBall.gameObject);
      }
 
@@ -65,7 +67,6 @@ public class BallPlasma : Ball
 
      //clean timer:
      //plasmaBallTimer.GetComponent<Text>().text = "";
-
    }
  }
 }

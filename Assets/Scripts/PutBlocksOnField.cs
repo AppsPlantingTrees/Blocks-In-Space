@@ -21,29 +21,33 @@ public class PutBlocksOnField : MonoBehaviour
                             -1, -1, -1, -1, -1, -1, -1,
                             -1, -1, -1, -1, -1, -1, -1,
                             -1, -1, -1, -1, -1, -1, -1 };*/
-    private int[] map={ -1, -1, 0, 0, 0, 0, 0,
-                        -1, -1, 0, 0, 0, 0, 0,
-                        -1, -1, 0, 0, 0, 0, 0,
-                        -1, -1, 0, 0, 0, 0, 0,
-                        -1, -1, 0, 0, 0, 0, 0,
-                        -1, -1, 0, 0, 0, 0, 0,
-                        -1, -1, 0, 0, 0, 0, 0,
-                        -1, -1, 0, 0, 0, 0, 0,
-                        -1, -1, -1, -1, -1, -1, -1,
-                        -1, -1, -1, -1, -1, -1, -1,
-                        -1, -1, -1, -1, -1, -1, -1,
-                        -1, -1, -1, -1, -1, -1, -1  };
+    private int[] map={     0, 5, 2, -1, 2, -1, 0,
+                            0, -1, 2, -1, 2, 12, 0,
+                            0, -1, 2, -1, 2, -1, 0,
+                            0, -1, 2, 9, 2, -1, 0,
+                            0, 15, 2, -1, 2, -1, 0,
+                            0, -1, 2, -1, 2, -1, 0,
+                            0, 5, 2, -1, 2, 9, 0,
+                            0, -1, 2, -1, 2, 5, 0,
+                            0, -1, 2, 12, 2, -1, 0,
+                            0, 9, 2, -1, 2, -1, 0,
+                            0, -1, 2, -1, 2, 15, 0,
+                            0, -1, 2, 9, 2, -1, 0, };
 
     public Block[] blocksArray;
     private int xLen = 18, yLen = 8;
-    private int xSpaceLen = 2, ySpaceLen = 2; //space between blocks
+    private int xSpaceLen = 2, ySpaceLen = 2; //space between blocks, 2 2 default
     private int xStart = -60, yStart = -40;
     private int xPos, yPos;
 
     void Start()
     {
-        //PutBlocks();
-        PutBlocksInCircle(6, 2, 22f);
+        PutBlocks();
+        /*PutBlocksInCircle(16, 1, 60f);
+        PutBlocksInCircle(13, 5, 50f);
+        PutBlocksInCircle(10, 0, 39f);
+        PutBlocksInCircle(7, 0, 27f);
+        PutBlocksInCircle(4, 4, 14f);*/
     }
 
     public void PutBlocks()

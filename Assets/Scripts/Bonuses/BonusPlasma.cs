@@ -15,6 +15,8 @@ public class BonusPlasma : Bonus
        {
          GameObject obj = Instantiate(plasmaBall, new Vector2(ball.transform.position.x, ball.transform.position.y), Quaternion.identity);
          obj.GetComponent<Rigidbody2D>().velocity = ball.GetComponent<Rigidbody2D>().velocity;
+         Vector3 scale = new Vector3(ball.gameObject.transform.localScale.x*130, ball.gameObject.transform.localScale.y*130, 1);
+         obj.gameObject.transform.localScale = scale;
          Destroy(ball.gameObject);
        }
    }

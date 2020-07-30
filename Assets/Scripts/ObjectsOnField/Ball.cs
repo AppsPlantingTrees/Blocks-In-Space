@@ -100,6 +100,7 @@ public class Ball : MonoBehaviour {
        position_x = transform.position.x,
        position_y = transform.position.y,
        speed = this.speed,
+       scale = transform.localScale.x,
        velocity_x = this.GetComponent<Rigidbody2D>().velocity.x,
        velocity_y = this.GetComponent<Rigidbody2D>().velocity.y,
        plasmaBallDur = plasmaBallDuration

@@ -266,6 +266,8 @@ MonoBehaviour:
   - {fileID: 4515765241641027890, guid: 03a34dae0fabea642971263bacb14665, type: 3}
   - {fileID: 144870138667357655, guid: 996c299a4bd6f1643a5ee52bb54015ed, type: 3}
   - {fileID: 7211362411372419802, guid: d3d36d11b3ae10546b0951871519b735, type: 3}
+  - {fileID: 4718000968493356393, guid: be41299e7f9957440be979d966a8e2e8, type: 3}
+  - {fileID: 3691066122850436042, guid: 0d976e1264bc2114c9645aeacf9ecff6, type: 3}
 --- !u!1 &316883252 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3230621816712184489, guid: 4360a360064725c45a8dc92165914993,
@@ -615,6 +617,8 @@ MonoBehaviour:
   - {fileID: 385471313180161363, guid: b7064cd5e20819a4687cb1333b5b277a, type: 3}
   - {fileID: 1368153879035235250, guid: 015564b097b71d4478227897e81e8f01, type: 3}
   - {fileID: 1966148862191328136, guid: 9c66f3701edecfe4eaf182aba5d98467, type: 3}
+  - {fileID: 2378931849207689560, guid: 5090abace1923374b8705a9920e16da7, type: 3}
+  - {fileID: 1911725205622606743, guid: b03e1e9453134184586481f98d00c741, type: 3}
 --- !u!114 &849526192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1217,7 +1221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.39215687}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.23529412}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
