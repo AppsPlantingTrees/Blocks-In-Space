@@ -26,19 +26,19 @@ public class GameManager : MonoBehaviour
     private static int currentCounter = 0, currentLvl;
     private static int winCounter = 0;
     bool isAboutMenuInstatillated = false, isUpgradesMenuInstatillated = false;
-    private int[] winCounters = {27, 37, 55, 56, 51, 50, 46, 33, 56, 59};
+    private int[] winCounters = {27, 37, 55, 56, 51, 50, 46, 33, 56, 59, 35, 46, 42, 40, 43};
     private const string APPODEAL_KEY = "b5460f397e403c19683b360077da0fe5c73082a06764ee71";
-    private const bool IS_APPODEAL_TEST = false; //for test
+    private const bool IS_APPODEAL_TEST = true; //for test
     private static int typeOfAd;
 
-    private const int MAX_LVL = 10;
+    private const int MAX_LVL = 15;
 
 
     void Start()
     {
       setUpAppodealAds();
 
-      //PlayerPrefs.SetInt("CurrentLvl", 1); //for test
+      PlayerPrefs.SetInt("CurrentLvl", 15); //for test
       currentLvl = PlayerPrefs.GetInt("CurrentLvl", 1);
       currentCounter = PlayerPrefs.GetInt("CurrentCounter", 0);
       winCounter = PlayerPrefs.GetInt("WinCounter", 0);
@@ -75,10 +75,10 @@ public class GameManager : MonoBehaviour
       currentCounter = 0;
       PlayerPrefs.SetInt("CurrentCounter", currentCounter);
 
-      /*GameObject[] allBlocks = GameObject.FindGameObjectsWithTag("Block");
+      GameObject[] allBlocks = GameObject.FindGameObjectsWithTag("Block");
       winCounter = allBlocks.Length;
-      Debug.Log("winCounter: " + winCounter);*/
-      winCounter = winCounters[currentLvl-1];
+      Debug.Log("winCounter: " + winCounter);
+      //winCounter = winCounters[currentLvl-1];
       PlayerPrefs.SetInt("WinCounter", winCounter);
 
       UndarkenScreenUnpauseTime();

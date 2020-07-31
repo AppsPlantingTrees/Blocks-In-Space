@@ -18,11 +18,18 @@ public class CanvasWinLvl : MonoBehaviour
         "<link=\"https://unsplash.com/@gferla\"><u>Guillermo Ferla</u></link>",
         "<link=\"https://unsplash.com/@gferla\"><u>Guillermo Ferla</u></link>", 
         "<link=\"https://unsplash.com/@nasa\"><u>NASA</u></link>",
+
         "<link=\"https://unsplash.com/@alex_andrews\"><u>Alexander Andrews</u></link> and <link=\"https://unsplash.com/@bryangoffphoto\"><u>Bryan Goff</u></link>",
         "<link=\"https://unsplash.com/@gferla\"><u>Guillermo Ferla</u></link>",
         "<link=\"https://unsplash.com/@nasa\"><u>NASA</u></link>",
         "<link=\"https://unsplash.com/@nasa\"><u>NASA</u></link>",
-        "<link=\"https://unsplash.com/@gferla\"><u>Guillermo Ferla</u></link>",};
+        "<link=\"https://unsplash.com/@gferla\"><u>Guillermo Ferla</u></link>",
+        
+        "<link=\"https://unsplash.com/@bryangoffphoto\"><u>Bryan Goff</u></link>",
+        "<link=\"https://unsplash.com/@bryangoffphoto\"><u>Bryan Goff</u></link>",
+        "<link=\"https://unsplash.com/@nasa\"><u>NASA</u></link>",
+        "<link=\"https://unsplash.com/@alex_andrews\"><u>Alexander Andrews</u></link>",
+        "<link=\"https://unsplash.com/@bryangoffphoto\"><u>Bryan Goff</u></link>",};
 
 
     public void SetUpCanvas(int currentLvl, int typeOfAdvertisement)

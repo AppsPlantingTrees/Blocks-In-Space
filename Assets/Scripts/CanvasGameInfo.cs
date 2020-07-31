@@ -17,7 +17,9 @@ public class CanvasGameInfo : MonoBehaviour
 
     private string[] lvlNames = {"1 | Earth", "2 | Milky Way", "3 | Andromeda galaxy",
             "4 | Moon", "5 | Carina Nebula", "6 | Orion Nebula", "7 | Sombrero galaxy", 
-            "8 | Bubble Nebula", "9 | Protostar", "10 | Triangulum Galaxy" };
+            "8 | Bubble Nebula", "9 | Protostar", "10 | Triangulum Galaxy",
+             "11 | Pleiades", "12 | Milky Way", "13 | Eagle Nebula", "14 | Comet Neowise", 
+             "15 | Solar Eclipse",};
 
     public void UpdateScore(int scoreToAdd)
     {
