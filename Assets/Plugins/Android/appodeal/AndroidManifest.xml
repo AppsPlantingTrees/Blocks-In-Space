@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" 
 xmlns:tools="http://schemas.android.com/tools" package="com.appodeal.appodeal.unity">
 
-    <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="27"/>
+    <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="29"/>
     <application android:allowBackup="true" android:networkSecurityConfig="@xml/network_security_config"
                  android:name="android.support.multidex.MultiDexApplication">
 
@@ -10,7 +10,7 @@ xmlns:tools="http://schemas.android.com/tools" package="com.appodeal.appodeal.un
 
         <meta-data
 			android:name="com.google.android.gms.ads.APPLICATION_ID"
-			android:value="[ca-app-pub-5892083197998037~8618480254]"/>
+			android:value="ca-app-pub-5892083197998037~8618480254"/>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"/>
