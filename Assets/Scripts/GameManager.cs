@@ -26,19 +26,23 @@ public class GameManager : MonoBehaviour
     private static int currentCounter = 0, currentLvl;
     private static int winCounter = 0;
     bool isAboutMenuInstatillated = false, isUpgradesMenuInstatillated = false;
-    private int[] winCounters = {27, 37, 55, 56, 51, 50, 46, 33, 56, 59, 35, 46, 42, 40, 43};
     private const string APPODEAL_KEY = "b5460f397e403c19683b360077da0fe5c73082a06764ee71";
     private const bool IS_APPODEAL_TEST = true; //for test
     private static int typeOfAd;
 
-    private const int MAX_LVL = 15;
+    private int[] winCounters = { 27, 37, 55, 56, 51, 
+                                  50, 46, 33, 56, 59, 
+                                  35, 46, 42, 40, 43,
+                                  70, 35, 50, 49, 34,};
+
+    private const int MAX_LVL = 20;
 
 
     void Start()
     {
       setUpAppodealAds();
 
-      PlayerPrefs.SetInt("CurrentLvl", 15); //for test
+      PlayerPrefs.SetInt("CurrentLvl", 20); //for test
       currentLvl = PlayerPrefs.GetInt("CurrentLvl", 1);
       currentCounter = PlayerPrefs.GetInt("CurrentCounter", 0);
       winCounter = PlayerPrefs.GetInt("WinCounter", 0);
@@ -50,19 +54,18 @@ public class GameManager : MonoBehaviour
       {
         StartNewLvl();
       }
-      //winCounter = 0; //for test
+      winCounter = 0; //for test
 
       ShowMainMenu();
     }
 
     public void StartNewLvl() 
     {
-      //Debug.Log("Start new lvl: " + currentLvl);
+      Debug.Log("Start new lvl: " + currentLvl);
       PlayerPrefs.SetInt("CurrentLvl", currentLvl);
       CleanField();
       winScreen.SetActive(false);
       loseScreen.SetActive(false);
-      winGameScreen.SetActive(false);
   
       blocks = canvasBlocks.GetComponent<CanvasBlocks>().SetUpBlocks(currentLvl); 
       GetComponent<SetBackground>().SetUpBackground(currentLvl);
@@ -75,10 +78,11 @@ public class GameManager : MonoBehaviour
       currentCounter = 0;
       PlayerPrefs.SetInt("CurrentCounter", currentCounter);
 
-      GameObject[] allBlocks = GameObject.FindGameObjectsWithTag("Block");
+      /*GameObject[] allBlocks = GameObject.FindGameObjectsWithTag("Block");
       winCounter = allBlocks.Length;
-      Debug.Log("winCounter: " + winCounter);
-      //winCounter = winCounters[currentLvl-1];
+      Debug.Log("winCounter: " + winCounter);*/
+
+      winCounter = winCounters[currentLvl-1];
       PlayerPrefs.SetInt("WinCounter", winCounter);
 
       UndarkenScreenUnpauseTime();
@@ -148,16 +152,19 @@ public class GameManager : MonoBehaviour
 
     public void Win()
     {
-      DarkenScreenPauseTime();
       if (currentLvl < MAX_LVL)
       {
+        DarkenScreenPauseTime();
         winScreen.SetActive(true);
         winScreen.GetComponent<CanvasWinLvl>().SetUpCanvas(currentLvl, typeOfAd);        
       } else {
+        //TODO install this screen, not inicialize
         //it was last lvl, you win the game:
+        canvasDarkenScreen.SetActive(true);
+        CleanField();
         winGameScreen.SetActive(true);
-        int score = canvasGameInfo.GetComponent<CanvasGameInfo>().getScore();
-        textGameScore.GetComponent<Text>().text = "SCORE: " + (score + 100); //+100 for last block
+        int score = canvasGameInfo.GetComponent<CanvasGameInfo>().getScore() + 100; //+100 for last block
+        winGameScreen.GetComponent<CanvasWinGame>().SetUpCanvas(score);    
       }
     }
 
@@ -175,6 +182,14 @@ public class GameManager : MonoBehaviour
 
     void UndarkenScreenUnpauseTime()
     {
+      //count blocks one more time in case of bugs:
+      GameObject[] allBlocks = GameObject.FindGameObjectsWithTag("Block");
+      if (allBlocks.Length <= 0)
+      {
+        canvasDarkenScreen.SetActive(false);
+        Win();
+        return;
+      } 
       canvasDarkenScreen.SetActive(false);
       Time.timeScale = 1.0f;
     }
