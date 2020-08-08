@@ -19,7 +19,8 @@ public class CanvasGameInfo : MonoBehaviour
             "4 | Moon", "5 | Carina Nebula", "6 | Orion Nebula", "7 | Sombrero galaxy", 
             "8 | Bubble Nebula", "9 | Protostar", "10 | Triangulum Galaxy",
              "11 | Pleiades", "12 | Milky Way", "13 | Eagle Nebula", "14 | Comet Neowise", 
-             "15 | Solar Eclipse",};
+             "15 | Solar Eclipse", "16 | Rosette Nebula", "17 | Eagle Nebula", "18 | Orion's belt", 
+             "19 | Moon", "20 | Helix Nebula",};
 
     public void UpdateScore(int scoreToAdd)
     {
