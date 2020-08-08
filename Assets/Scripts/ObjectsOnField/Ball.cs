@@ -62,12 +62,12 @@ public class Ball : MonoBehaviour {
       ballPosScreen = transform.position;
       if (ballPosScreen.x >= world.x) 
       {
-        Debug.Log("ball off screen: " + ballPosScreen);
+        //Debug.Log("ball off screen: " + ballPosScreen);
         ballPosScreen.x = world.x - halfSizeBall;
         transform.position = ballPosScreen;
       } else if(ballPosScreen.x <= -world.x)
       {
-        Debug.Log("ball off screen: " + ballPosScreen);
+        //Debug.Log("ball off screen: " + ballPosScreen);
         ballPosScreen.x = -(world.x - halfSizeBall);
         transform.position = ballPosScreen;
       }
