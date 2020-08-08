@@ -12,24 +12,35 @@ public class CanvasWinLvl : MonoBehaviour
     public GameObject textCoins, textScore, textPhoto, buttonX2ForAd;
     private int typeOfAd;
 
+    private const string NASA = "<link=\"https://unsplash.com/@nasa\"><u>NASA</u></link>";
+    private const string GuillermoFerla = "<link=\"https://unsplash.com/@gferla\"><u>Guillermo Ferla</u></link>";
+    private const string BryanGoff = "<link=\"https://unsplash.com/@bryangoffphoto\"><u>Bryan Goff</u></link>";
+    private const string AlexanderAndrews = "<link=\"https://unsplash.com/@alex_andrews\"><u>Alexander Andrews</u></link>";
+
     private string[] photoAutor = {
-        "<link=\"https://unsplash.com/@nasa\"><u>NASA</u></link>", 
+        NASA, 
         "<link=\"https://unsplash.com/@jeremythomasphoto\"><u>Jeremy Thomas</u></link>", 
-        "<link=\"https://unsplash.com/@gferla\"><u>Guillermo Ferla</u></link>",
-        "<link=\"https://unsplash.com/@gferla\"><u>Guillermo Ferla</u></link>", 
-        "<link=\"https://unsplash.com/@nasa\"><u>NASA</u></link>",
+        GuillermoFerla,
+        GuillermoFerla, 
+        NASA,
 
         "<link=\"https://unsplash.com/@alex_andrews\"><u>Alexander Andrews</u></link> and <link=\"https://unsplash.com/@bryangoffphoto\"><u>Bryan Goff</u></link>",
-        "<link=\"https://unsplash.com/@gferla\"><u>Guillermo Ferla</u></link>",
-        "<link=\"https://unsplash.com/@nasa\"><u>NASA</u></link>",
-        "<link=\"https://unsplash.com/@nasa\"><u>NASA</u></link>",
-        "<link=\"https://unsplash.com/@gferla\"><u>Guillermo Ferla</u></link>",
+        GuillermoFerla,
+        NASA,
+        NASA,
+        GuillermoFerla,
         
-        "<link=\"https://unsplash.com/@bryangoffphoto\"><u>Bryan Goff</u></link>",
-        "<link=\"https://unsplash.com/@bryangoffphoto\"><u>Bryan Goff</u></link>",
-        "<link=\"https://unsplash.com/@nasa\"><u>NASA</u></link>",
-        "<link=\"https://unsplash.com/@alex_andrews\"><u>Alexander Andrews</u></link>",
-        "<link=\"https://unsplash.com/@bryangoffphoto\"><u>Bryan Goff</u></link>",};
+        BryanGoff,
+        BryanGoff,
+        NASA,
+        AlexanderAndrews,
+        BryanGoff,
+        
+        AlexanderAndrews,
+        NASA,
+        AlexanderAndrews,
+        GuillermoFerla,
+        GuillermoFerla,};
 
 
     public void SetUpCanvas(int currentLvl, int typeOfAdvertisement)
