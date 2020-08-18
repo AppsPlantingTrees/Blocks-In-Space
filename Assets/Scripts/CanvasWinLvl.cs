@@ -40,6 +40,12 @@ public class CanvasWinLvl : MonoBehaviour
         NASA,
         AlexanderAndrews,
         GuillermoFerla,
+        GuillermoFerla,
+        
+        "<link=\"https://unsplash.com/@phaelnogueira\"><u>Raphael Nogueira</u></link>",
+        GuillermoFerla,
+        NASA,
+        NASA,
         GuillermoFerla,};
 
 

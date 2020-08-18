@@ -27,22 +27,23 @@ public class GameManager : MonoBehaviour
     private static int winCounter = 0;
     bool isAboutMenuInstatillated = false, isUpgradesMenuInstatillated = false;
     private const string APPODEAL_KEY = "b5460f397e403c19683b360077da0fe5c73082a06764ee71";
-    private const bool IS_APPODEAL_TEST = true; //for test
+    private const bool IS_APPODEAL_TEST = false; //for test
     private static int typeOfAd;
 
     private int[] winCounters = { 27, 37, 55, 56, 51, 
-                                  50, 46, 33, 56, 59, 
+                                  50, 48, 33, 56, 59, 
                                   35, 46, 42, 40, 43,
-                                  70, 35, 50, 49, 34,};
+                                  70, 35, 50, 48, 34,
+                                  59, 46, 39, 43, 28};
 
-    private const int MAX_LVL = 20;
+    private const int MAX_LVL = 25;
 
 
     void Start()
     {
       setUpAppodealAds();
 
-      PlayerPrefs.SetInt("CurrentLvl", 20); //for test
+      //PlayerPrefs.SetInt("CurrentLvl", 7); //for test
       currentLvl = PlayerPrefs.GetInt("CurrentLvl", 1);
       currentCounter = PlayerPrefs.GetInt("CurrentCounter", 0);
       winCounter = PlayerPrefs.GetInt("WinCounter", 0);
@@ -54,7 +55,8 @@ public class GameManager : MonoBehaviour
       {
         StartNewLvl();
       }
-      winCounter = 0; //for test
+      //StartNewLvl(); //for test
+      //winCounter = 0; //for test
 
       ShowMainMenu();
     }
@@ -155,12 +157,14 @@ public class GameManager : MonoBehaviour
       if (currentLvl < MAX_LVL)
       {
         DarkenScreenPauseTime();
+        SaveGame();
         winScreen.SetActive(true);
         winScreen.GetComponent<CanvasWinLvl>().SetUpCanvas(currentLvl, typeOfAd);        
       } else {
         //TODO install this screen, not inicialize
         //it was last lvl, you win the game:
         canvasDarkenScreen.SetActive(true);
+        SaveGame();
         CleanField();
         winGameScreen.SetActive(true);
         int score = canvasGameInfo.GetComponent<CanvasGameInfo>().getScore() + 100; //+100 for last block
