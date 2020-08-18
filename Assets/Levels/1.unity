@@ -316,6 +316,7 @@ MonoBehaviour:
   - {fileID: 7211362411372419802, guid: d3d36d11b3ae10546b0951871519b735, type: 3}
   - {fileID: 4718000968493356393, guid: be41299e7f9957440be979d966a8e2e8, type: 3}
   - {fileID: 3691066122850436042, guid: 0d976e1264bc2114c9645aeacf9ecff6, type: 3}
+  - {fileID: 1906462914821880363, guid: a3f42d8667d15804bace53d626f499eb, type: 3}
 --- !u!4 &849526187
 Transform:
   m_ObjectHideFlags: 0
@@ -614,7 +615,7 @@ SpriteRenderer:
   m_Size: {x: 7.2, y: 15.39}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1772274305
@@ -742,7 +743,7 @@ SpriteRenderer:
   m_SortingLayerID: 952350079
   m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0d8c64c4f240c1e4dbc80b52ae811130, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e941d7d046510c048ac34d92a1a2d471, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
