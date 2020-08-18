@@ -73,6 +73,9 @@ public class CanvasBlocksFromSave : MonoBehaviour
             case "BlockBonusSmallerBall":
                 index = 19;
                 break;
+            case "BlockExplosive":
+                index = 20;
+                break;
             }
             Block b = Instantiate(blocksArray[index], new Vector2(blockToLoad.position_x, 
                     blockToLoad.position_y), Quaternion.identity);
