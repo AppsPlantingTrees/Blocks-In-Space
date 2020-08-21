@@ -46,6 +46,12 @@ public class CanvasWinLvl : MonoBehaviour
         GuillermoFerla,
         NASA,
         NASA,
+        GuillermoFerla,
+
+        NASA,
+        GuillermoFerla,
+        NASA,
+        GuillermoFerla,
         GuillermoFerla,};
 
 
