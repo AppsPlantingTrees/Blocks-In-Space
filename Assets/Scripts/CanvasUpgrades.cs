@@ -38,7 +38,7 @@ public class CanvasUpgrades : MonoBehaviour
 
   void loadData()
   {
-    //counter to disable video ads here after 15/day:
+    //counter to disable video ads here after ADS_PER_DAY:
     int currentDay = System.DateTime.Now.Day;
     if (currentDay != PlayerPrefs.GetInt("SavedDay", 0)) {
       adCounter = 0;
@@ -54,6 +54,9 @@ public class CanvasUpgrades : MonoBehaviour
     priceLife = PlayerPrefs.GetInt("PriceLife", 25);
     priceBarrier = PlayerPrefs.GetInt("PriceBarrier", 25);
     pricePlasma = PlayerPrefs.GetInt("PricePlasma", 25);
+
+    amountOfCoins.GetComponent<AmountOfCoins>().UpdateCoins(coins);
+    textBall.GetComponent<TextBall>().UpdateBalls(balls);
   }
 
   public void watchVideoAd()
