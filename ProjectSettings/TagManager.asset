@@ -21,6 +21,7 @@ TagManager:
   - TeleportIn
   - CanvasGameInfo
   - Barrier
+  - Explosion
   layers:
   - Default
   - TransparentFX
