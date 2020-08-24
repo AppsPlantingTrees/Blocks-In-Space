@@ -34,16 +34,17 @@ public class GameManager : MonoBehaviour
                                   50, 48, 33, 56, 59, 
                                   35, 46, 42, 40, 43,
                                   70, 35, 50, 48, 34,
-                                  59, 46, 39, 43, 28};
+                                  59, 46, 39, 43, 28,
+                                  44, 32, 28, 31, 44, };
 
-    private const int MAX_LVL = 25;
+    private const int MAX_LVL = 30;
 
 
     void Start()
     {
       setUpAppodealAds();
 
-      //PlayerPrefs.SetInt("CurrentLvl", 7); //for test
+      //PlayerPrefs.SetInt("CurrentLvl", 26); //for test
       currentLvl = PlayerPrefs.GetInt("CurrentLvl", 1);
       currentCounter = PlayerPrefs.GetInt("CurrentCounter", 0);
       winCounter = PlayerPrefs.GetInt("WinCounter", 0);
@@ -140,6 +141,12 @@ public class GameManager : MonoBehaviour
       foreach(GameObject telOut in allTelOut)
       {
         Destroy(telOut);
+      }
+
+      GameObject[] allExplosions = GameObject.FindGameObjectsWithTag("Explosion");
+      foreach(GameObject explosion in allExplosions)
+      {
+        Destroy(explosion);
       }
     }
 
