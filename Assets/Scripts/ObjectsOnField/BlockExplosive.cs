@@ -12,6 +12,7 @@ public class BlockExplosive : Block
       GameObject.FindWithTag("CanvasGameInfo").GetComponent<CanvasGameInfo>().UpdateScore(SCORE_FOR_BLOCK);
 
       Instantiate(explosion, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+      GameObject.FindWithTag("SoundManager").GetComponent<SoundManager>().playExplosion();
 
       Destroy(gameObject);
   }

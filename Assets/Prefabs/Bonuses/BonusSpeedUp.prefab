@@ -141,4 +141,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8044cab7b3dca94689cdd190483c9ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundManager: {fileID: 0}
   typeOfBonus: BonusSpeedUp

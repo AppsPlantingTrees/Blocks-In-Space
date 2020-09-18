@@ -9,8 +9,14 @@ it's bonus.
 
 public class Bonus : MonoBehaviour
 {
+   public GameObject soundManager;
    public string typeOfBonus = "Bonus";
    public const int SCORE_FOR_BONUS = 300;
+
+   void Start() 
+   {
+      soundManager = GameObject.FindGameObjectWithTag("SoundManager");
+   }
 
    void OnCollisionEnter2D(Collision2D collisionInfo)
    {
@@ -18,6 +24,7 @@ public class Bonus : MonoBehaviour
       {
          gameObject.GetComponent<Bonus>().GetBonus();
          GameObject.FindWithTag("CanvasGameInfo").GetComponent<CanvasGameInfo>().UpdateScore(SCORE_FOR_BONUS);
+         soundManager.GetComponent<SoundManager>().playCatchBonus();
          Destroy(gameObject);
       }
    }

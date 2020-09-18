@@ -141,4 +141,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7420f3710cc491b478d5fcd388187aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundManager: {fileID: 0}
   typeOfBonus: BonusEnlargeBall

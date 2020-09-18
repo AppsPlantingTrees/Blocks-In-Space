@@ -9,6 +9,7 @@ public class Life : Bonus
      if (collisionInfo.gameObject.tag == "Racket")
      {
         GameObject.FindWithTag("CanvasGameInfo").GetComponent<CanvasGameInfo>().LivesPlus();
+        soundManager.GetComponent<SoundManager>().playCatchBonus();
         Destroy(gameObject);
      }
    }

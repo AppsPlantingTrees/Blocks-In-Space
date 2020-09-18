@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     private static int winCounter = 0;
     bool isAboutMenuInstatillated = false, isUpgradesMenuInstatillated = false;
     private const string APPODEAL_KEY = "b5460f397e403c19683b360077da0fe5c73082a06764ee71";
-    private const bool IS_APPODEAL_TEST = false; //for test
+    private const bool IS_APPODEAL_TEST = true; //for test
     private static int typeOfAd;
 
     private int[] winCounters = { 27, 37, 55, 56, 51, 
@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     {
       setUpAppodealAds();
 
-      //PlayerPrefs.SetInt("CurrentLvl", 26); //for test
+      PlayerPrefs.SetInt("CurrentLvl", 26); //for test
       currentLvl = PlayerPrefs.GetInt("CurrentLvl", 1);
       currentCounter = PlayerPrefs.GetInt("CurrentCounter", 0);
       winCounter = PlayerPrefs.GetInt("WinCounter", 0);
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
       {
         StartNewLvl();
       }
-      //StartNewLvl(); //for test
+      StartNewLvl(); //for test
       //winCounter = 0; //for test
 
       ShowMainMenu();

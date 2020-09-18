@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class BallPlasma : Ball
 {
+  //private GameObject soundManager;
+
   public GameObject ball;
   //GameObject plasmaBallTimer;
 
@@ -29,6 +31,12 @@ public class BallPlasma : Ball
       //field bounds:
       world = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0.0f, 0.0f));
       halfSizeBall = GetComponent<Renderer>().bounds.size.x / 2;
+      
+      soundManager = GameObject.FindGameObjectWithTag("SoundManager");
+  }
+
+  void OnTriggerEnter2D(Collider2D collisionInfo) {
+    soundManager.GetComponent<SoundManager>().playHitPlasmaSound(collisionInfo.gameObject.tag);
   }
 
   void Update() {

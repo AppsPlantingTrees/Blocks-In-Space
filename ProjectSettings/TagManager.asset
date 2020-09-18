@@ -22,6 +22,7 @@ TagManager:
   - CanvasGameInfo
   - Barrier
   - Explosion
+  - SoundManager
   layers:
   - Default
   - TransparentFX

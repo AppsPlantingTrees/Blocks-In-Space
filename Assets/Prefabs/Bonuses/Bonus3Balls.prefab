@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c6a876e7254434da0d80b755bd4375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundManager: {fileID: 0}
   typeOfBonus: Bonus3Balls
   ballCopy: {fileID: 3343424029394791246, guid: f470648f8da6c664cad4bbaa299f1a19,
     type: 3}

@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7962f513b127e644287a3eb67787ab63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundManager: {fileID: 0}
   typeOfBonus: BonusPlasma
   plasmaBall: {fileID: 6826181172942925040, guid: 4e55b577f3412b54982f67ecfb1af919,
     type: 3}

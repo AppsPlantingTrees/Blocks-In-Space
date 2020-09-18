@@ -9,6 +9,7 @@ public class Death : Bonus
     if (collisionInfo.gameObject.tag == "Racket")
     {
       Destroy(collisionInfo.gameObject);
+      soundManager.GetComponent<SoundManager>().playCatchDeath();
       Destroy(gameObject);
     }
    }

@@ -141,5 +141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92677eab5fc0dc44494eb7a6e9aa8a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundManager: {fileID: 0}
   typeOfBonus: BonusBarrier
   barrier: {fileID: 5902696902322098650, guid: ac3638edf52352d43994dc5bdca64bdb, type: 3}

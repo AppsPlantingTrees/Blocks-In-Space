@@ -141,6 +141,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a9ef3be05042540ba5dab49f51642f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundManager: {fileID: 0}
   typeOfBonus: BonusShortRacket
-  shortRacket: {fileID: 495747098511816529, guid: da489836601527f4a8b79693819d45b3,
-    type: 3}

@@ -94,9 +94,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7edf48f4c479ce34f830b304293dbf9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundManager: {fileID: 0}
   typeOfBonus: BonusLongRacket
-  longRacket: {fileID: 5881464598543703266, guid: 589cfa3e182547848b70b6995366599e,
-    type: 3}
 --- !u!61 &389626804151381688
 BoxCollider2D:
   m_ObjectHideFlags: 0
