@@ -27,11 +27,12 @@ public class BorderLower : MonoBehaviour
             blockSteel.GetComponent<PolygonCollider2D>().isTrigger = false;
           }
 
+          GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>().playLostBall();
           Destroy(collisionInfo.gameObject);
           
           //if not last ball, install ball again:
           if (GameObject.FindWithTag("CanvasGameInfo").GetComponent<CanvasGameInfo>().LivesMinus()) {
-            Instantiate(ball, new Vector2(0, -85), Quaternion.identity);
+            Instantiate(ball, new Vector2(0, -75), Quaternion.identity);
           }
 
           //install new racket:

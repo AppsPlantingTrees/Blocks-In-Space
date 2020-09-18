@@ -13,10 +13,14 @@ public class SoundManager : MonoBehaviour
     public AudioClip[] hitSteelBlockSounds;
     public AudioClip[] hitSoundsPlasma;
     public AudioClip[] hitBlockSoundsPlasma;
-    public AudioClip catchCoin;
+    public AudioClip[] catchCoin;
     public AudioClip catchBonus;
     public AudioClip catchDeatch;
+    public AudioClip lostBall;
     public AudioClip explosion;
+
+    public AudioClip winLvl;
+    public AudioClip winGame;
 
     void Start() 
     {
@@ -27,7 +31,7 @@ public class SoundManager : MonoBehaviour
     public void updateSoundPrefs() 
     {
         hasSound = PlayerPrefs.GetInt("hasSound", 0);
-        hasSound = 1; //for test
+        //hasSound = 1; //for test
     }
 
     public void playHitSound(string tag) 
@@ -47,9 +51,9 @@ public class SoundManager : MonoBehaviour
     {
         if (hasSound != 0) {
             if (tag == "Block" || tag == "BlockSteel") {
-                audioSource.PlayOneShot(hitBlockSoundsPlasma[Random.Range(0, hitBlockSoundsPlasma.Length)]);
+                audioSource.PlayOneShot(hitBlockSoundsPlasma[Random.Range(0, hitBlockSoundsPlasma.Length)], 0.6f);
             } else {
-                audioSource.PlayOneShot(hitSoundsPlasma[Random.Range(0, hitSoundsPlasma.Length)]);
+                audioSource.PlayOneShot(hitSoundsPlasma[Random.Range(0, hitSoundsPlasma.Length)], 0.6f);
             }
         }
     }
@@ -57,21 +61,28 @@ public class SoundManager : MonoBehaviour
     public void playCatchCoin() 
     {
         if (hasSound != 0) {
-            audioSource.PlayOneShot(catchCoin);
+            audioSource.PlayOneShot(catchCoin[Random.Range(0, catchCoin.Length)], 0.1f);
         }
     }
 
     public void playCatchBonus() 
     {
         if (hasSound != 0) {
-            audioSource.PlayOneShot(catchBonus);
+            audioSource.PlayOneShot(catchBonus, 0.3f);
         }
     }
 
     public void playCatchDeath() 
     {
         if (hasSound != 0) {
-            audioSource.PlayOneShot(catchDeatch);
+            audioSource.PlayOneShot(catchDeatch, 0.4f);
+        }
+    }
+
+    public void playLostBall() 
+    {
+        if (hasSound != 0) {
+            audioSource.PlayOneShot(lostBall, 0.6f);
         }
     }
 
@@ -79,6 +90,20 @@ public class SoundManager : MonoBehaviour
     {
         if (hasSound != 0) {
             audioSource.PlayOneShot(explosion);
+        }
+    }
+
+    public void playWinLvl() 
+    {
+        if (hasSound != 0) {
+            audioSource.PlayOneShot(winLvl, 0.6f);
+        }
+    }
+
+        public void playWinGame() 
+    {
+        if (hasSound != 0) {
+            audioSource.PlayOneShot(winGame, 0.6f);
         }
     }
 
