@@ -17,14 +17,18 @@ public class GameManager : MonoBehaviour
     public GameObject winScreen, loseScreen, winGameScreen, textGameScore;
     public GameObject mainMenu, pauseMenu, canvasDarkenScreen, canvasGameInfo, canvasBlocks;
     public GameObject aboutMenu, upgradesMenu; //not initialized
+    public GameObject soundManager;
     public Ball ball;
     public BallPlasma ballPlasma;
     public Racket racket;
+    public Button soundButton;
+    public Sprite soundButtonOn, soundButtonOff;
     Canvas blocks;
 
     float barrierDuration, plasmaBallDuration;
     private static int currentCounter = 0, currentLvl;
     private static int winCounter = 0;
+    private int hasSound;
     bool isAboutMenuInstatillated = false, isUpgradesMenuInstatillated = false;
     private const string APPODEAL_KEY = "b5460f397e403c19683b360077da0fe5c73082a06764ee71";
     private const bool IS_APPODEAL_TEST = true; //for test
@@ -44,7 +48,7 @@ public class GameManager : MonoBehaviour
     {
       setUpAppodealAds();
 
-      PlayerPrefs.SetInt("CurrentLvl", 26); //for test
+      PlayerPrefs.SetInt("CurrentLvl", 30); //for test
       currentLvl = PlayerPrefs.GetInt("CurrentLvl", 1);
       currentCounter = PlayerPrefs.GetInt("CurrentCounter", 0);
       winCounter = PlayerPrefs.GetInt("WinCounter", 0);
@@ -58,6 +62,13 @@ public class GameManager : MonoBehaviour
       }
       StartNewLvl(); //for test
       //winCounter = 0; //for test
+
+      hasSound = PlayerPrefs.GetInt("hasSound", 0);
+      if (hasSound == 0) {
+        soundButton.GetComponent<Image>().sprite = soundButtonOff;
+      } else {
+        soundButton.GetComponent<Image>().sprite = soundButtonOn;
+      }
 
       ShowMainMenu();
     }
@@ -163,6 +174,7 @@ public class GameManager : MonoBehaviour
     {
       if (currentLvl < MAX_LVL)
       {
+        soundManager.GetComponent<SoundManager>().playWinLvl();
         DarkenScreenPauseTime();
         SaveGame();
         winScreen.SetActive(true);
@@ -170,6 +182,7 @@ public class GameManager : MonoBehaviour
       } else {
         //TODO install this screen, not inicialize
         //it was last lvl, you win the game:
+        soundManager.GetComponent<SoundManager>().playWinGame();
         canvasDarkenScreen.SetActive(true);
         SaveGame();
         CleanField();
@@ -285,6 +298,7 @@ public class GameManager : MonoBehaviour
       PlayerPrefs.SetInt("CurrentLvl", currentLvl);
       PlayerPrefs.SetInt("CurrentCounter", currentCounter);
       PlayerPrefs.SetInt("WinCounter", winCounter);
+      PlayerPrefs.SetInt("hasSound", hasSound);
 
       GetComponent<SaveLoadManager>().saveObjectsData(currentLvl);
       canvasGameInfo.GetComponent<CanvasGameInfo>().saveData();
@@ -335,5 +349,18 @@ public class GameManager : MonoBehaviour
        using (var version = new AndroidJavaClass("android.os.Build$VERSION")) {
          return version.GetStatic<int>("SDK_INT");
        }
+    }
+
+    public void onClickSoundButton()
+    {
+      if (hasSound == 0) {
+        hasSound = 1;
+        soundButton.GetComponent<Image>().sprite = soundButtonOn;
+      } else {
+        hasSound = 0;
+        soundButton.GetComponent<Image>().sprite = soundButtonOff;
+      }
+      PlayerPrefs.SetInt("hasSound", hasSound);
+      soundManager.GetComponent<SoundManager>().updateSoundPrefs();
     }
 }
