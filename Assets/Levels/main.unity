@@ -573,7 +573,10 @@ MonoBehaviour:
   catchBonus: {fileID: 8300000, guid: 565a8d716f189a04fa298da6e0ed6cc6, type: 3}
   catchDeatch: {fileID: 8300000, guid: 0bc5bd4bbee3abf47944424993e1a69d, type: 3}
   lostBall: {fileID: 8300000, guid: 3b35882cbab14cb4caed71a18d32e672, type: 3}
-  explosion: {fileID: 8300000, guid: 2bc656f4c925db0488d2b74e1105ef16, type: 3}
+  explosionSounds:
+  - {fileID: 8300000, guid: 84ad61c2620d90c4b9fd300193adae7a, type: 3}
+  - {fileID: 8300000, guid: 227f5c6bc59272b40b7bad3e48cc0bd3, type: 3}
+  - {fileID: 8300000, guid: 4e3d055898ade484db0f047fe41cf27f, type: 3}
   winLvl: {fileID: 8300000, guid: 3294b85b51a44c04890b53d36a5f0227, type: 3}
   winGame: {fileID: 8300000, guid: 88e650bcc80a9ac46b147f1a0c75f9c0, type: 3}
 --- !u!4 &823101456
