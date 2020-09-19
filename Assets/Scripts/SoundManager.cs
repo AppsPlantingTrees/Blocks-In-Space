@@ -17,7 +17,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip catchBonus;
     public AudioClip catchDeatch;
     public AudioClip lostBall;
-    public AudioClip explosion;
+    public AudioClip[] explosionSounds;
 
     public AudioClip winLvl;
     public AudioClip winGame;
@@ -51,9 +51,9 @@ public class SoundManager : MonoBehaviour
     {
         if (hasSound != 0) {
             if (tag == "Block" || tag == "BlockSteel") {
-                audioSource.PlayOneShot(hitBlockSoundsPlasma[Random.Range(0, hitBlockSoundsPlasma.Length)], 0.6f);
+                audioSource.PlayOneShot(hitBlockSoundsPlasma[Random.Range(0, hitBlockSoundsPlasma.Length)], 0.5f);
             } else {
-                audioSource.PlayOneShot(hitSoundsPlasma[Random.Range(0, hitSoundsPlasma.Length)], 0.6f);
+                audioSource.PlayOneShot(hitSoundsPlasma[Random.Range(0, hitSoundsPlasma.Length)], 0.5f);
             }
         }
     }
@@ -89,7 +89,7 @@ public class SoundManager : MonoBehaviour
     public void playExplosion() 
     {
         if (hasSound != 0) {
-            audioSource.PlayOneShot(explosion);
+            audioSource.PlayOneShot(explosionSounds[Random.Range(0, explosionSounds.Length)]);
         }
     }
 
@@ -100,11 +100,16 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-        public void playWinGame() 
+    public void playWinGame() 
     {
         if (hasSound != 0) {
             audioSource.PlayOneShot(winGame, 0.6f);
         }
+    }
+
+    public void stopPlaying() 
+    {
+        audioSource.Stop();
     }
 
 }
