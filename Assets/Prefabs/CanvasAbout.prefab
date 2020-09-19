@@ -1288,7 +1288,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.9999847, y: -17}
+  m_AnchoredPosition: {x: 7.999939, y: -17}
   m_SizeDelta: {x: 498.6, y: 313.59998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4926245026121119706
@@ -1317,10 +1317,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<link=\"https://fontawesome.com\"><u>Font Awesome</u></link>,\r\n<link=\"https://unsplash.com\"><u>Unsplash</u></link>,\r\n<link=\"https://opengameart.org/content/breakout-brick-breaker-tile-set-free\"><u>ImagineLabs.Rocks</u></link>,\r\n<link=\"https://unsplash.com/@nasa\"><u>NASA</u></link>,\r\n<link=\"https://unsplash.com/@gferla\"><u>Guillermo
+  m_text: "<link=\"https://fontawesome.com\"><u>Font Awesome</u></link>,\n<link=\"https://99sounds.org/free-sound-effects\"><u>99
+    Sound Effects</u></link>,\n<link=\"https://kenney.nl/assets?q=audio\"><u>Kenney
+    Assets</u></link>,\n<link=\"https://www.themotionmonkey.co.uk/free-resources/retro-arcade-sounds\"><u>The
+    Motion Monkey Sound Effects</u></link>,\n<link=\"https://opengameart.org/content/breakout-brick-breaker-tile-set-free\"><u>ImagineLabs.Rocks</u></link>,\r\n<link=\"https://unsplash.com/@nasa\"><u>NASA</u></link>,\r\n<link=\"https://unsplash.com/@gferla\"><u>Guillermo
     Ferla</u></link>,\r\n<link=\"https://unsplash.com/@jeremythomasphoto\"><u>Jeremy
-    Thomas</u></link>\n<link=\"https://unsplash.com/@alex_andrews\"><u>Alexander Andrews</u></link>\n<link=\"https://unsplash.com/@bryangoffphoto\"><u>Bryan
-    Goff</u></link>\n<link=\"https://unsplash.com/@phaelnogueira\"><u>Raphael Nogueira</u></link>"
+    Thomas</u></link>, <link=\"https://unsplash.com/@alex_andrews\"><u>Alexander Andrews</u></link>,\n<link=\"https://unsplash.com/@bryangoffphoto\"><u>Bryan
+    Goff</u></link>, <link=\"https://unsplash.com/@phaelnogueira\"><u>Raphael Nogueira</u></link>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1389,11 +1392,11 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 8577143931247321483}
-    characterCount: 130
+    characterCount: 187
     spriteCount: 0
-    spaceCount: 14
-    wordCount: 16
-    linkCount: 9
+    spaceCount: 23
+    wordCount: 25
+    linkCount: 11
     lineCount: 9
     pageCount: 1
     materialCount: 1
@@ -1459,7 +1462,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.1, y: -244.7}
+  m_AnchoredPosition: {x: -5.1000366, y: -244.70001}
   m_SizeDelta: {x: 472.4, y: 100.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &316247132803485142
