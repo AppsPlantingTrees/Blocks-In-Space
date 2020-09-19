@@ -57,8 +57,6 @@ public class CanvasWinGame : MonoBehaviour
             }
             Destroy(fireworks[i]);
         }
-        //TODO call New Game from a game manager
-        //TODO - destroy
         gameObject.SetActive(false);
     }
 
