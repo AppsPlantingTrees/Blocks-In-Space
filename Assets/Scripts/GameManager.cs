@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
     {
       setUpAppodealAds();
 
-      PlayerPrefs.SetInt("CurrentLvl", 30); //for test
+      PlayerPrefs.SetInt("CurrentLvl", 29); //for test
       currentLvl = PlayerPrefs.GetInt("CurrentLvl", 1);
       currentCounter = PlayerPrefs.GetInt("CurrentCounter", 0);
       winCounter = PlayerPrefs.GetInt("WinCounter", 0);
@@ -66,6 +66,7 @@ public class GameManager : MonoBehaviour
       hasSound = PlayerPrefs.GetInt("hasSound", 0);
       if (hasSound == 0) {
         soundButton.GetComponent<Image>().sprite = soundButtonOff;
+        soundManager.GetComponent<SoundManager>().stopPlaying();
       } else {
         soundButton.GetComponent<Image>().sprite = soundButtonOn;
       }
@@ -220,6 +221,8 @@ public class GameManager : MonoBehaviour
 
     public void NewGame()
     {
+      soundManager.GetComponent<SoundManager>().stopPlaying();
+
       PlayerPrefs.SetInt("Coins", 0);
       PlayerPrefs.SetInt("Score", 0);
       PlayerPrefs.SetInt("Balls", 3);
@@ -239,6 +242,7 @@ public class GameManager : MonoBehaviour
     public void NextLevel()
     {
       currentLvl++;
+      soundManager.GetComponent<SoundManager>().stopPlaying();
       StartNewLvl();
     }
 
@@ -359,6 +363,7 @@ public class GameManager : MonoBehaviour
       } else {
         hasSound = 0;
         soundButton.GetComponent<Image>().sprite = soundButtonOff;
+        soundManager.GetComponent<SoundManager>().stopPlaying();
       }
       PlayerPrefs.SetInt("hasSound", hasSound);
       soundManager.GetComponent<SoundManager>().updateSoundPrefs();
