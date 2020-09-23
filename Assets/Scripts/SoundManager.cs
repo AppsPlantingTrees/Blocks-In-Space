@@ -89,21 +89,21 @@ public class SoundManager : MonoBehaviour
     public void playExplosion() 
     {
         if (hasSound != 0) {
-            audioSource.PlayOneShot(explosionSounds[Random.Range(0, explosionSounds.Length)]);
+            audioSource.PlayOneShot(explosionSounds[Random.Range(0, explosionSounds.Length)], 0.8f);
         }
     }
 
     public void playWinLvl() 
     {
         if (hasSound != 0) {
-            audioSource.PlayOneShot(winLvl, 0.6f);
+            audioSource.PlayOneShot(winLvl, 0.5f);
         }
     }
 
     public void playWinGame() 
     {
         if (hasSound != 0) {
-            audioSource.PlayOneShot(winGame, 0.6f);
+            audioSource.PlayOneShot(winGame, 0.5f);
         }
     }
 
