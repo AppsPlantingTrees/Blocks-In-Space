@@ -121,7 +121,11 @@ public class SaveLoadManager : MonoBehaviour
           return false;
         }
 
-        if (currentLvl != save.lvl) return false;
+        if (currentLvl != save.lvl) 
+        {
+          GameObject.FindWithTag("GameManager").GetComponent<GameManager>().setCurrentLvl(save.lvl);
+          return false;
+        }
 
         foreach(BallForSave ballToLoad in save.balls)
         {
