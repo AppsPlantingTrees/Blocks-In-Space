@@ -22,18 +22,17 @@ public class PutBlocksOnField : MonoBehaviour
                             -1, -1, -1, -1, -1, -1, -1,
                             -1, -1, -1, -1, -1, -1, -1 };*/
     private int[] map={     -1, -1, -1, -1, -1, -1, -1,
+                            -1, 11, -1, -1, -1, -1, -1,
+                            -1, -1, -1, 7, -1, -1, -1,
+                            -1, -1, 7, 20, 7, -1, -1,
+                            -1, -1, -1, 7, -1, 9, -1,
+                            -1, 7, -1, -1, -1, -1, -1,
+                            7, 20, 7, -1, -1, 2, -1,
+                            -1, 7, -1, -1, 2, 20, 2,
+                            -1, -1, -1, -1, -1, 2, -1,
                             -1, -1, -1, -1, -1, -1, -1,
-                            -1,  3,  3, -1,  3,  3, -1,
-                            -1,  0,  3,  3,  3,  0, -1,
-                            -1,  0,  3,  2,  3,  0, -1,
-                            -1,  0,  0,  2,  0,  0, -1,
-                             0,  0,  0,  0,  0,  0,  0,
-                            -1, 14,  0, 11,  0, 14, -1,
-                            -1, -1,  0, 11,  0, -1, -1,
-                            -1, -1, -1,  0, 0, -1, -1,
-                            -1, -1, -1,  0, -1, -1, -1,
-                             6,  6,  6,  6,  6,  6,  6,
-                            -1, -1, -1, -1, -1, -1, -1  };
+                             7, 7, 9, 7, 7, 20, 7,
+                            7, 20, 7, 7, 11, 7, 7 };
 
     public Block[] blocksArray;
     private int xLen = 18, yLen = 8;
@@ -43,13 +42,14 @@ public class PutBlocksOnField : MonoBehaviour
 
     void Start()
     {
-        //PutBlocks();
+        PutBlocks();
         //PutBlocksInCircle(16, 1, 60f);
         /*PutBlocksInCircle(13, 5, 50f);
         PutBlocksInCircle(10, 0, 39f);
         PutBlocksInCircle(7, 0, 27f);
         PutBlocksInCircle(4, 4, 14f);*/
-        PutBlocksInRectangle(3, 12, 1);
+        //PutBlocksInRectangle(3, 12, 1);
+        //PutBlocksInWave(1, 7, 5);
     }
 
     public void PutBlocks()

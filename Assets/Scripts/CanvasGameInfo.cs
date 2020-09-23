@@ -22,7 +22,8 @@ public class CanvasGameInfo : MonoBehaviour
              "15 | Solar Eclipse", "16 | Rosette Nebula", "17 | Eagle Nebula", "18 | Orion's belt", 
              "19 | Moon", "20 | Helix Nebula", "21 | Milky Way", "22 | Iris Nebula", "23 | Earth",
              "24 | Bubble Nebula", "25 | Needle Galaxy", "26 | Moon", "27 | Hercules Cluster", 
-             "28 | Earth", "29 | Comet Neowise", "30 | Horsehead Nebula"};
+             "28 | Earth", "29 | Comet Neowise", "30 | Horsehead Nebula", 
+             "31 | Pinwheel Galaxy", "32 | Cigar Galaxy", "33 | Carina Nebula", "34 | Moon", "35 | Andromeda Galaxy"};
 
     public void UpdateScore(int scoreToAdd)
     {

@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     private int hasSound;
     bool isAboutMenuInstatillated = false, isUpgradesMenuInstatillated = false;
     private const string APPODEAL_KEY = "b5460f397e403c19683b360077da0fe5c73082a06764ee71";
-    private const bool IS_APPODEAL_TEST = true; //for test
+    private const bool IS_APPODEAL_TEST = false; //for test
     private static int typeOfAd;
 
     private int[] winCounters = { 27, 37, 55, 56, 51, 
@@ -39,16 +39,17 @@ public class GameManager : MonoBehaviour
                                   35, 46, 42, 40, 43,
                                   70, 35, 50, 48, 34,
                                   59, 46, 39, 43, 28,
-                                  44, 32, 28, 31, 44, };
+                                  44, 32, 28, 31, 44, 
+                                  44, 38, 38, 26, 39, };
 
-    private const int MAX_LVL = 30;
+    private const int MAX_LVL = 35;
 
 
     void Start()
     {
       setUpAppodealAds();
 
-      PlayerPrefs.SetInt("CurrentLvl", 29); //for test
+      //PlayerPrefs.SetInt("CurrentLvl", 35); //for test
       currentLvl = PlayerPrefs.GetInt("CurrentLvl", 1);
       currentCounter = PlayerPrefs.GetInt("CurrentCounter", 0);
       winCounter = PlayerPrefs.GetInt("WinCounter", 0);
@@ -60,7 +61,7 @@ public class GameManager : MonoBehaviour
       {
         StartNewLvl();
       }
-      StartNewLvl(); //for test
+      //StartNewLvl(); //for test
       //winCounter = 0; //for test
 
       hasSound = PlayerPrefs.GetInt("hasSound", 0);
@@ -367,5 +368,10 @@ public class GameManager : MonoBehaviour
       }
       PlayerPrefs.SetInt("hasSound", hasSound);
       soundManager.GetComponent<SoundManager>().updateSoundPrefs();
+    }
+
+    public void setCurrentLvl(int lvl) 
+    {
+      currentLvl = lvl;
     }
 }

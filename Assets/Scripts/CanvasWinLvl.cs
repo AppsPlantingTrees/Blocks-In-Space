@@ -52,7 +52,13 @@ public class CanvasWinLvl : MonoBehaviour
         GuillermoFerla,
         NASA,
         GuillermoFerla,
-        GuillermoFerla,};
+        GuillermoFerla,
+        
+        GuillermoFerla,
+        GuillermoFerla,
+        NASA,
+        NASA,
+        BryanGoff,};
 
 
     public void SetUpCanvas(int currentLvl, int typeOfAdvertisement)
