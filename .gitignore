@@ -6,6 +6,7 @@
 !.gitignore
 !/[Aa]ssets/
 !/[Pp]roject[Ss]ettings/
+!/[Ss]creens/
 
 # Except subfolders:
  /[Aa]ssets/[Aa]ppodeal/
