@@ -1,0 +1,8 @@
+<dependencies>
+    <androidPackages>
+        <androidPackage spec='com.appodeal.ads.sdk.networks:amazon_ads:2.8.1.2'/>
+        <repositories>
+            <repository>https://artifactory.appodeal.com/artifactory/appodeal</repository>
+        </repositories>
+    </androidPackages>
+</dependencies>

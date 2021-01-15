@@ -1,0 +1,8 @@
+<dependencies>
+    <androidPackages>
+        <androidPackage spec='com.appodeal.ads.sdk.networks:smaato:2.8.1.4'/>
+        <repositories>
+            <repository>https://artifactory.appodeal.com/artifactory/appodeal</repository>
+        </repositories>
+    </androidPackages>
+</dependencies>
